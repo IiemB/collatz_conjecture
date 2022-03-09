@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iiemb.collatz_conjecture">
    <application
-        android:label="collatz_conjecture"
+        android:label="Collatz Conjecture"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
