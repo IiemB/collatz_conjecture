@@ -30,6 +30,7 @@ dependencies:
   build_runner: ^2.1.7
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
+  flex_color_scheme: ^4.2.0
   flutter:
     sdk: flutter
   flutter_app_name: ^0.1.1
@@ -38,8 +39,13 @@ dependencies:
   flutter_native_splash: ^2.1.0
   freezed_annotation: ^1.1.0
   get_it: ^7.2.0
+  google_fonts: ^2.3.1
   injectable: ^1.5.3
   injectable_generator: ^1.5.3
+  intl: ^0.17.0
+  logger: ^1.1.0
+  shared_preferences: ^2.0.13
+  syncfusion_flutter_charts: ^19.4.55
 
 dev_dependencies:
   flutter_lints: ^1.0.0

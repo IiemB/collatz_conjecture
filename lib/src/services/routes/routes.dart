@@ -1,3 +1,4 @@
+import 'package:collatz_conjecture/src/features/home/presentation/pages/home_page.dart';
 import 'package:collatz_conjecture/src/features/welcome/presentation/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
@@ -15,8 +16,8 @@ class Routes {
           //   return const SplashPage();
           // case SignPage.routeName:
           //   return const SignPage();
-          // case BlankPage.routeName:
-          //   return const BlankPage();
+          case HomePage.routeName:
+            return const HomePage();
           default:
             return const WelcomePage();
         }
