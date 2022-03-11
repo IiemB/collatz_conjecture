@@ -1,3 +1,4 @@
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/chart_result.dart';
 import 'package:collatz_conjecture/src/features/theme/presentation/widgets/switch_theme_button.dart';
 import 'package:collatz_conjecture/src/utils/validators.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView(
+        child: Column(
           children: [
             Form(
               key: _formKey,
@@ -57,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+            const Expanded(child: Card(child: SizedBox(child: ChartResult()))),
           ],
         ),
       ),
