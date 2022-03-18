@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ChartDataModel {
+class ChartData {
   final int x;
   final int y;
   final Color? color;
 
-  ChartDataModel(this.x, this.y, {this.color});
+  ChartData(this.x, this.y, {this.color});
 }

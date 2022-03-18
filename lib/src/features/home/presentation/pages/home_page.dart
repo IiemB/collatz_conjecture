@@ -1,67 +1,70 @@
+import 'package:collatz_conjecture/src/features/home/presentation/cubit/chart_cubit.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/chart_result.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/collatz_summary.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/fa_button.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/line_chart.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/pie_chart.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/switch_chart_button.dart';
 import 'package:collatz_conjecture/src/features/theme/presentation/widgets/switch_theme_button.dart';
-import 'package:collatz_conjecture/src/utils/validators.dart';
+import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   static const routeName = 'HomePage';
   const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final _inputNumberController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    _inputNumberController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        title: const Text('Collatz Conjecture'),
-        actions: const [SwitchThemeButton()],
+        title: Text(
+          'Collatz Conjecture',
+          style: TextStyle(color: context.themeData.colorScheme.primary),
+        ),
+        actions: const [SwitchChartButton(), SwitchThemeButton()],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Form(
-              key: _formKey,
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                controller: _inputNumberController,
-                decoration: const InputDecoration(
-                  hintText: 'Input number',
-                  labelText: 'Input number',
-                ),
-                validator: (value) {
-                  if (value != null) {
-                    if (value.isEmpty ||
-                        !Validators.isNumericOnly(value) ||
-                        value == '0') {
-                      return 'Invalid number';
-                    }
-                  }
-                  return null;
-                },
-                onFieldSubmitted: (value) {
-                  final _isFormValid =
-                      _formKey.currentState?.validate() ?? false;
-                },
+        padding: const EdgeInsets.all(8),
+        child: BlocConsumer<CollatzNumberCubit, CollatzNumberState>(
+          listener: (context, state) {
+            state.maybeMap(
+              orElse: () {},
+              error: (v) => context.showSnackBar(
+                v.failure.message ?? v.failure.toString(),
               ),
+            );
+          },
+          buildWhen: (previous, current) =>
+              current is CollatzNumberStateLoading ||
+              current is CollatzNumberStateSuccess ||
+              current is CollatzNumberStateInitial,
+          builder: (context, state) => state.maybeMap(
+            initial: (v) => const CollatzSummary(),
+            orElse: () => ListView(
+              physics: const BouncingScrollPhysics(),
+              children: [
+                BlocBuilder<ChartCubit, ChartState>(
+                  builder: (context, state) {
+                    switch (state) {
+                      case ChartState.lineChart:
+                        return const LineChartBuilder();
+                      case ChartState.pieChart:
+                        return const PieChartBuilder();
+                    }
+                  },
+                ),
+                const ChartResultBuilder(),
+                SizedBox.square(dimension: context.height / 14),
+              ],
             ),
-            const Expanded(child: Card(child: SizedBox(child: ChartResult()))),
-          ],
+          ),
         ),
       ),
+      floatingActionButton: const FAButton(),
     );
   }
 }

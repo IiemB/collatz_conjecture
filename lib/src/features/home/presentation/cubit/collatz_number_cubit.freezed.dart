@@ -26,9 +26,9 @@ class _$CollatzNumberStateTearOff {
     return const CollatzNumberStateLoading();
   }
 
-  CollatzNumberStateSuccess succees(List<ChartDataModel> data) {
+  CollatzNumberStateSuccess succees({required ResultDataModel result}) {
     return CollatzNumberStateSuccess(
-      data,
+      result: result,
     );
   }
 
@@ -48,7 +48,7 @@ mixin _$CollatzNumberState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChartDataModel> data) succees,
+    required TResult Function(ResultDataModel result) succees,
     required TResult Function(Failure failure) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ mixin _$CollatzNumberState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,7 +64,7 @@ mixin _$CollatzNumberState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) =>
@@ -158,7 +158,7 @@ class _$CollatzNumberStateInitial implements CollatzNumberStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChartDataModel> data) succees,
+    required TResult Function(ResultDataModel result) succees,
     required TResult Function(Failure failure) error,
   }) {
     return initial();
@@ -169,7 +169,7 @@ class _$CollatzNumberStateInitial implements CollatzNumberStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
   }) {
     return initial?.call();
@@ -180,7 +180,7 @@ class _$CollatzNumberStateInitial implements CollatzNumberStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
@@ -277,7 +277,7 @@ class _$CollatzNumberStateLoading implements CollatzNumberStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChartDataModel> data) succees,
+    required TResult Function(ResultDataModel result) succees,
     required TResult Function(Failure failure) error,
   }) {
     return loading();
@@ -288,7 +288,7 @@ class _$CollatzNumberStateLoading implements CollatzNumberStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
   }) {
     return loading?.call();
@@ -299,7 +299,7 @@ class _$CollatzNumberStateLoading implements CollatzNumberStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
@@ -356,7 +356,9 @@ abstract class $CollatzNumberStateSuccessCopyWith<$Res> {
   factory $CollatzNumberStateSuccessCopyWith(CollatzNumberStateSuccess value,
           $Res Function(CollatzNumberStateSuccess) then) =
       _$CollatzNumberStateSuccessCopyWithImpl<$Res>;
-  $Res call({List<ChartDataModel> data});
+  $Res call({ResultDataModel result});
+
+  $ResultDataModelCopyWith<$Res> get result;
 }
 
 /// @nodoc
@@ -373,28 +375,35 @@ class _$CollatzNumberStateSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? data = freezed,
+    Object? result = freezed,
   }) {
     return _then(CollatzNumberStateSuccess(
-      data == freezed
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as List<ChartDataModel>,
+      result: result == freezed
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as ResultDataModel,
     ));
+  }
+
+  @override
+  $ResultDataModelCopyWith<$Res> get result {
+    return $ResultDataModelCopyWith<$Res>(_value.result, (value) {
+      return _then(_value.copyWith(result: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
-  const _$CollatzNumberStateSuccess(this.data);
+  const _$CollatzNumberStateSuccess({required this.result});
 
   @override
-  final List<ChartDataModel> data;
+  final ResultDataModel result;
 
   @override
   String toString() {
-    return 'CollatzNumberState.succees(data: $data)';
+    return 'CollatzNumberState.succees(result: $result)';
   }
 
   @override
@@ -402,12 +411,12 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CollatzNumberStateSuccess &&
-            const DeepCollectionEquality().equals(other.data, data));
+            const DeepCollectionEquality().equals(other.result, result));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(result));
 
   @JsonKey(ignore: true)
   @override
@@ -420,10 +429,10 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChartDataModel> data) succees,
+    required TResult Function(ResultDataModel result) succees,
     required TResult Function(Failure failure) error,
   }) {
-    return succees(data);
+    return succees(result);
   }
 
   @override
@@ -431,10 +440,10 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
   }) {
-    return succees?.call(data);
+    return succees?.call(result);
   }
 
   @override
@@ -442,12 +451,12 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (succees != null) {
-      return succees(data);
+      return succees(result);
     }
     return orElse();
   }
@@ -491,10 +500,10 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
 }
 
 abstract class CollatzNumberStateSuccess implements CollatzNumberState {
-  const factory CollatzNumberStateSuccess(List<ChartDataModel> data) =
+  const factory CollatzNumberStateSuccess({required ResultDataModel result}) =
       _$CollatzNumberStateSuccess;
 
-  List<ChartDataModel> get data;
+  ResultDataModel get result;
   @JsonKey(ignore: true)
   $CollatzNumberStateSuccessCopyWith<CollatzNumberStateSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -577,7 +586,7 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChartDataModel> data) succees,
+    required TResult Function(ResultDataModel result) succees,
     required TResult Function(Failure failure) error,
   }) {
     return error(failure);
@@ -588,7 +597,7 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
   }) {
     return error?.call(failure);
@@ -599,7 +608,7 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChartDataModel> data)? succees,
+    TResult Function(ResultDataModel result)? succees,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
