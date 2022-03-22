@@ -9,7 +9,7 @@ class SwitchThemeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: context.themeData.colorScheme.primary,

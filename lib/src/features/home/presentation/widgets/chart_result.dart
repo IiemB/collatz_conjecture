@@ -10,36 +10,39 @@ class ChartResultBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
-      buildWhen: (previous, current) =>
-          current is CollatzNumberStateLoading ||
-          current is CollatzNumberStateSuccess ||
-          current is CollatzNumberStateInitial,
-      builder: (context, state) {
-        return state.maybeMap(
-          orElse: () => const SizedBox(),
-          initial: (v) => const SizedBox(),
-          succees: (v) => ChartResult(resultDataModel: v.result),
-          loading: (v) => Shimmer.fromColors(
-            baseColor: context.themeData.cardColor,
-            highlightColor: context.themeData.colorScheme.primary,
-            enabled: true,
-            child: ChartResult(
-              resultDataModel: ResultDataModel(
-                initialNumber: 1,
-                data: [],
-                totalOddNumber: 1,
-                totalEvenNumber: 1,
-                highestNumber: 1,
-                highestNumberAt: 1,
-                lenghtPerSteps: 1,
-                oddDistribution: 1,
-                evenDistribution: 1,
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
+        buildWhen: (previous, current) =>
+            current is CollatzNumberStateLoading ||
+            current is CollatzNumberStateSuccess ||
+            current is CollatzNumberStateInitial,
+        builder: (context, state) {
+          return state.maybeMap(
+            orElse: () => const SizedBox(),
+            initial: (v) => const SizedBox(),
+            succees: (v) => ChartResult(resultDataModel: v.result),
+            loading: (v) => Shimmer.fromColors(
+              baseColor: context.themeData.cardColor,
+              highlightColor: context.themeData.colorScheme.primary,
+              enabled: true,
+              child: ChartResult(
+                resultDataModel: ResultDataModel(
+                  initialNumber: 1,
+                  data: [],
+                  totalOddNumber: 1,
+                  totalEvenNumber: 1,
+                  highestNumber: 1,
+                  highestNumberAt: 1,
+                  lenghtPerSteps: 1,
+                  oddDistribution: 1,
+                  evenDistribution: 1,
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -68,7 +71,7 @@ class ChartResult extends StatelessWidget {
           const Divider(),
           ListTile(
             title: const Text('Number of step to reach 1'),
-            trailing: Text(resultDataModel.data.length.toString()),
+            trailing: Text('${resultDataModel.data.length} Steps'),
           ),
           const Divider(),
           ListTile(

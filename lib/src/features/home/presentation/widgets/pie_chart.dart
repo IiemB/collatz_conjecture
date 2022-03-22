@@ -10,32 +10,35 @@ class PieChartBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
-      buildWhen: (previous, current) =>
-          current is CollatzNumberStateLoading ||
-          current is CollatzNumberStateSuccess ||
-          current is CollatzNumberStateInitial,
-      builder: (context, state) {
-        return state.maybeMap(
-          orElse: () => const SizedBox(),
-          initial: (v) => const SizedBox(),
-          succees: (v) => _PieChart(
-            evenDistribution: v.result.evenDistribution,
-            oddDistribution: v.result.oddDistribution,
-          ),
-          loading: (v) => Shimmer.fromColors(
-            baseColor: context.themeData.cardColor,
-            highlightColor: context.themeData.colorScheme.primary,
-            enabled: true,
-            child: Card(
-              child: SizedBox(
-                height: context.height / 1.5,
-                width: context.width,
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
+        buildWhen: (previous, current) =>
+            current is CollatzNumberStateLoading ||
+            current is CollatzNumberStateSuccess ||
+            current is CollatzNumberStateInitial,
+        builder: (context, state) {
+          return state.maybeMap(
+            orElse: () => const SizedBox(),
+            initial: (v) => const SizedBox(),
+            succees: (v) => _PieChart(
+              evenDistribution: v.result.evenDistribution,
+              oddDistribution: v.result.oddDistribution,
+            ),
+            loading: (v) => Shimmer.fromColors(
+              baseColor: context.themeData.cardColor,
+              highlightColor: context.themeData.colorScheme.primary,
+              enabled: true,
+              child: Card(
+                child: SizedBox(
+                  height: context.height / 1.5,
+                  width: context.width,
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

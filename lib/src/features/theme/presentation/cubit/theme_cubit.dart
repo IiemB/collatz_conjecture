@@ -23,8 +23,8 @@ class ThemeCubit extends Cubit<ThemeMode> {
         await sharedPrefs.setBool(SharedPrefsKey.themeMode, true);
         emit(ThemeMode.dark);
       }
-    } finally {
-      devLogger.i(sharedPrefs.getBool(SharedPrefsKey.themeMode));
+    } on Exception catch (e) {
+      devLogger.w(e);
     }
   }
 }

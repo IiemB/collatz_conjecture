@@ -11,29 +11,32 @@ class LineChartBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
-      buildWhen: (previous, current) =>
-          current is CollatzNumberStateLoading ||
-          current is CollatzNumberStateSuccess ||
-          current is CollatzNumberStateInitial,
-      builder: (context, state) {
-        return state.maybeMap(
-          orElse: () => const SizedBox(),
-          initial: (v) => const SizedBox(),
-          succees: (v) => _LineChart(chartData: v.result.data),
-          loading: (v) => Shimmer.fromColors(
-            baseColor: context.themeData.cardColor,
-            highlightColor: context.themeData.colorScheme.primary,
-            enabled: true,
-            child: Card(
-              child: SizedBox(
-                height: context.height / 1.5,
-                width: context.width,
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
+        buildWhen: (previous, current) =>
+            current is CollatzNumberStateLoading ||
+            current is CollatzNumberStateSuccess ||
+            current is CollatzNumberStateInitial,
+        builder: (context, state) {
+          return state.maybeMap(
+            orElse: () => const SizedBox(),
+            initial: (v) => const SizedBox(),
+            succees: (v) => _LineChart(chartData: v.result.data),
+            loading: (v) => Shimmer.fromColors(
+              baseColor: context.themeData.cardColor,
+              highlightColor: context.themeData.colorScheme.primary,
+              enabled: true,
+              child: Card(
+                child: SizedBox(
+                  height: context.height / 1.5,
+                  width: context.width,
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -59,7 +62,7 @@ class _LineChart extends StatelessWidget {
             primaryYAxis: NumericAxis(
               axisLine: const AxisLine(width: 0),
               majorTickLines: const MajorTickLines(size: 0),
-              // numberFormat: NumberFormat.compact(),
+              minimum: 1,
             ),
             series: <LineSeries<ChartData, int>>[
               LineSeries<ChartData, int>(

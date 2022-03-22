@@ -1,5 +1,4 @@
 import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
-import 'package:collatz_conjecture/src/services/dev_logger/dev_logger.dart';
 import 'package:collatz_conjecture/src/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +19,6 @@ class _InputDialogueState extends State<InputDialogue> {
   @override
   void dispose() {
     _inputNumberController.dispose();
-    devLogger.i('Input dialoge disposed');
     super.dispose();
   }
 
@@ -56,7 +54,6 @@ class _InputDialogueState extends State<InputDialogue> {
             final _isFormValid = _formKey.currentState?.validate() ?? false;
 
             if (_isFormValid) {
-              devLogger.i('in number : $value');
               Navigator.pop(context);
               BlocProvider.of<CollatzNumberCubit>(context)
                   .processNumber(int.parse(value));
