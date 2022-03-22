@@ -9,7 +9,6 @@ import 'package:collatz_conjecture/src/features/home/presentation/widgets/switch
 import 'package:collatz_conjecture/src/features/theme/presentation/widgets/switch_theme_button.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
