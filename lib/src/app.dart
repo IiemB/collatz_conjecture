@@ -19,13 +19,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<CollatzNumberCubit>()),
         BlocProvider(create: (context) => getIt<ChartCubit>()),
       ],
-      child: BlocBuilder<ThemeCubit, ThemeMode>(
+      child: BlocBuilder<ThemeCubit, int>(
         builder: (context, state) {
           return MaterialApp(
             title: 'Collatz Conjecture',
-            theme: Themes.lightTheme,
-            darkTheme: Themes.darkTheme,
-            themeMode: state,
+            theme: Themes.getTheme(state),
             initialRoute: HomePage.routeName,
             onGenerateRoute: getIt<Routes>().onGenerateRoute,
           );

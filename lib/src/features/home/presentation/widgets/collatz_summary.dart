@@ -1,5 +1,6 @@
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/negative_image.dart';
 import 'package:collatz_conjecture/src/features/theme/presentation/cubit/theme_cubit.dart';
+import 'package:collatz_conjecture/src/utils/assets.gen.dart';
 import 'package:collatz_conjecture/src/utils/constants.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
@@ -13,14 +14,15 @@ class CollatzSummary extends StatelessWidget {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
-          const Padding(
-            padding: EdgeInsets.all(4.0),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
             child: Card(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
+                padding: const EdgeInsets.all(8.0),
+                child: SelectableText(
                   Constanst.text1,
                   textAlign: TextAlign.justify,
+                  style: context.themeData.textTheme.subtitle1,
                 ),
               ),
             ),
@@ -31,32 +33,21 @@ class CollatzSummary extends StatelessWidget {
               child: SizedBox(
                 width: context.width,
                 height: context.height / 8,
-                child: BlocBuilder<ThemeCubit, ThemeMode>(
+                child: BlocBuilder<ThemeCubit, int>(
                   builder: (context, state) {
                     return Container(
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        // color: state == ThemeMode.dark
-                        //     ? const Color(0xff131617)
-                        //     : const Color(0xfff7fbfd),
-                        // color: Colors.amber,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: NegativeImage(
-                        isNegative: state == ThemeMode.dark,
-                        child: Image.asset(
-                          Constanst.collatzFormulaImgAssest,
+                        isNegative: state != 0,
+                        child: Image(
+                          image: Assets.images.collatzFormula,
                           fit: BoxFit.contain,
+                          filterQuality: FilterQuality.high,
                         ),
-                        // child: Image.network(
-                        //   Constanst.collatzFormulaImgNetwork,
-                        //   fit: BoxFit.contain,
-                        //   errorBuilder: (context, _, __) => Image.asset(
-                        //     Constanst.collatzFormulaImgNetwork,
-                        //     fit: BoxFit.contain,
-                        //   ),
-                        // ),
                       ),
                     );
                   },

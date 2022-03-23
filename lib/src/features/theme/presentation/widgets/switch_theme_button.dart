@@ -14,13 +14,15 @@ class SwitchThemeButton extends StatelessWidget {
         shape: BoxShape.circle,
         color: context.themeData.colorScheme.primary,
       ),
-      child: BlocBuilder<ThemeCubit, ThemeMode>(
+      child: BlocBuilder<ThemeCubit, int>(
         builder: (context, state) {
           return IconButton(
             tooltip: 'Change theme mode',
-            icon: state == ThemeMode.dark
-                ? const Icon(Icons.light_mode)
-                : const Icon(Icons.dark_mode),
+            icon: state != 0
+                ? state == 1
+                    ? const Icon(Icons.dark_mode)
+                    : const Icon(Icons.light_mode_outlined)
+                : const Icon(Icons.dark_mode_outlined),
             onPressed: () => BlocProvider.of<ThemeCubit>(context).changeTheme(),
           );
         },

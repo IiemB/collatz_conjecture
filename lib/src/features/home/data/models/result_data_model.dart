@@ -8,11 +8,12 @@ class ResultDataModel with _$ResultDataModel {
   factory ResultDataModel({
     required int initialNumber,
     required List<ChartData> data,
+    required int totalSteps,
     required int totalOddNumber,
     required int totalEvenNumber,
     required int highestNumber,
     required int highestNumberAt,
-    required double lenghtPerSteps,
+    required double highestPerInitial,
     required double oddDistribution,
     required double evenDistribution,
   }) = _ResultDataModel;

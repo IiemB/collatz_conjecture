@@ -7,7 +7,11 @@ extension ContextExtensions on BuildContext {
 
   double get height => MediaQuery.of(this).size.height;
 
-  void showSnackBar(String message) => ScaffoldMessenger.of(this).showSnackBar(
+  void showSnackBar(
+    String message, {
+    Duration duration = const Duration(seconds: 3),
+  }) =>
+      ScaffoldMessenger.of(this).showSnackBar(
         SnackBar(
           behavior: SnackBarBehavior.floating,
           content: Text(message),

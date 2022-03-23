@@ -1,8 +1,8 @@
 import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/base_shimmer.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class PieChartBuilder extends StatelessWidget {
@@ -25,10 +25,7 @@ class PieChartBuilder extends StatelessWidget {
               evenDistribution: v.result.evenDistribution,
               oddDistribution: v.result.oddDistribution,
             ),
-            loading: (v) => Shimmer.fromColors(
-              baseColor: context.themeData.cardColor,
-              highlightColor: context.themeData.colorScheme.primary,
-              enabled: true,
+            loading: (v) => BaseShimmer(
               child: Card(
                 child: SizedBox(
                   height: context.height / 1.5,
@@ -77,7 +74,7 @@ class _PieChart extends StatelessWidget {
                 xValueMapper: (data, _) => data['set'] as String,
                 yValueMapper: (data, _) => data['value'] as num,
                 dataLabelMapper: (data, _) =>
-                    '${data['set']} \n ${data['value'].toString().length >= 4 ? data['value'].toString().substring(0, 4) : data['value']}%',
+                    '${data['set']} \n ${data['value'].toString().length >= 5 ? data['value'].toString().substring(0, 5) : data['value']} %',
                 startAngle: 90,
                 endAngle: 90,
                 dataLabelSettings: const DataLabelSettings(isVisible: true),

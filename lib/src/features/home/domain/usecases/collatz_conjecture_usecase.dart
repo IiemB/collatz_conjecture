@@ -18,7 +18,7 @@ class CollatzConjectureUsecase implements CollatzConjectureRepositories {
 
       final _data = List<ChartData>.empty(growable: true);
       int value = number < 0 ? number * -1 : number;
-      int index = 1;
+      int index = 0;
 
       _data.add(ChartData(index, value));
 
@@ -35,17 +35,23 @@ class CollatzConjectureUsecase implements CollatzConjectureRepositories {
         } while (value != 1);
       }).whenComplete(() => _completer.complete());
 
+      final _data2 = List<ChartData>.from(_data);
+
       if (_completer.isCompleted) {
+        _data2.removeAt(0);
+
         final _initialNumber = _data.first.y;
-        final _totalOddSteps = _data.where((element) => element.y.isOdd).length;
+        final _totalOddSteps =
+            _data2.where((element) => element.y.isOdd).length;
+        final _totalSteps = _data.length - 1;
         final _totalEvenSteps =
-            _data.where((element) => element.y.isEven).length;
+            _data2.where((element) => element.y.isEven).length;
         final _highestNumber = _data
             .map((e) => e.y)
             .reduce((curr, next) => curr > next ? curr : next);
         final _highestNumberAt =
-            _data.indexWhere((element) => element.y >= _highestNumber) + 1;
-        final _lenghtPerSteps = _highestNumber / _initialNumber;
+            _data.indexWhere((element) => element.y >= _highestNumber);
+        final _highestPerInitial = _highestNumber / _initialNumber;
 
         final _oddDistribution =
             (_totalOddSteps / (_totalEvenSteps + _totalOddSteps)) * 100;
@@ -56,11 +62,12 @@ class CollatzConjectureUsecase implements CollatzConjectureRepositories {
           ResultDataModel(
             initialNumber: _initialNumber,
             data: _data,
+            totalSteps: _totalSteps,
             totalOddNumber: _totalOddSteps,
             totalEvenNumber: _totalEvenSteps,
             highestNumber: _highestNumber,
             highestNumberAt: _highestNumberAt,
-            lenghtPerSteps: _lenghtPerSteps,
+            highestPerInitial: _highestPerInitial,
             oddDistribution: _oddDistribution,
             evenDistribution: _evenDistribution,
           ),

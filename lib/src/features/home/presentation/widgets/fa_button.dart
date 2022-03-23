@@ -1,6 +1,5 @@
 import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/input_dialogue.dart';
-import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,9 +27,8 @@ class FAButton extends StatelessWidget {
           child: state.maybeMap(
             orElse: () => const Icon(Icons.add),
             initial: (v) => const Icon(Icons.add),
-            loading: (v) => CircularProgressIndicator(
-              color: context.themeData.iconTheme.color,
-            ),
+            loading: (v) =>
+                const CircularProgressIndicator(color: Colors.black),
             succees: (v) => const Icon(Icons.loop),
           ),
         );

@@ -21,21 +21,23 @@ class _$ResultDataModelTearOff {
   _ResultDataModel call(
       {required int initialNumber,
       required List<ChartData> data,
+      required int totalSteps,
       required int totalOddNumber,
       required int totalEvenNumber,
       required int highestNumber,
       required int highestNumberAt,
-      required double lenghtPerSteps,
+      required double highestPerInitial,
       required double oddDistribution,
       required double evenDistribution}) {
     return _ResultDataModel(
       initialNumber: initialNumber,
       data: data,
+      totalSteps: totalSteps,
       totalOddNumber: totalOddNumber,
       totalEvenNumber: totalEvenNumber,
       highestNumber: highestNumber,
       highestNumberAt: highestNumberAt,
-      lenghtPerSteps: lenghtPerSteps,
+      highestPerInitial: highestPerInitial,
       oddDistribution: oddDistribution,
       evenDistribution: evenDistribution,
     );
@@ -49,11 +51,12 @@ const $ResultDataModel = _$ResultDataModelTearOff();
 mixin _$ResultDataModel {
   int get initialNumber => throw _privateConstructorUsedError;
   List<ChartData> get data => throw _privateConstructorUsedError;
+  int get totalSteps => throw _privateConstructorUsedError;
   int get totalOddNumber => throw _privateConstructorUsedError;
   int get totalEvenNumber => throw _privateConstructorUsedError;
   int get highestNumber => throw _privateConstructorUsedError;
   int get highestNumberAt => throw _privateConstructorUsedError;
-  double get lenghtPerSteps => throw _privateConstructorUsedError;
+  double get highestPerInitial => throw _privateConstructorUsedError;
   double get oddDistribution => throw _privateConstructorUsedError;
   double get evenDistribution => throw _privateConstructorUsedError;
 
@@ -70,11 +73,12 @@ abstract class $ResultDataModelCopyWith<$Res> {
   $Res call(
       {int initialNumber,
       List<ChartData> data,
+      int totalSteps,
       int totalOddNumber,
       int totalEvenNumber,
       int highestNumber,
       int highestNumberAt,
-      double lenghtPerSteps,
+      double highestPerInitial,
       double oddDistribution,
       double evenDistribution});
 }
@@ -92,11 +96,12 @@ class _$ResultDataModelCopyWithImpl<$Res>
   $Res call({
     Object? initialNumber = freezed,
     Object? data = freezed,
+    Object? totalSteps = freezed,
     Object? totalOddNumber = freezed,
     Object? totalEvenNumber = freezed,
     Object? highestNumber = freezed,
     Object? highestNumberAt = freezed,
-    Object? lenghtPerSteps = freezed,
+    Object? highestPerInitial = freezed,
     Object? oddDistribution = freezed,
     Object? evenDistribution = freezed,
   }) {
@@ -109,6 +114,10 @@ class _$ResultDataModelCopyWithImpl<$Res>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ChartData>,
+      totalSteps: totalSteps == freezed
+          ? _value.totalSteps
+          : totalSteps // ignore: cast_nullable_to_non_nullable
+              as int,
       totalOddNumber: totalOddNumber == freezed
           ? _value.totalOddNumber
           : totalOddNumber // ignore: cast_nullable_to_non_nullable
@@ -125,9 +134,9 @@ class _$ResultDataModelCopyWithImpl<$Res>
           ? _value.highestNumberAt
           : highestNumberAt // ignore: cast_nullable_to_non_nullable
               as int,
-      lenghtPerSteps: lenghtPerSteps == freezed
-          ? _value.lenghtPerSteps
-          : lenghtPerSteps // ignore: cast_nullable_to_non_nullable
+      highestPerInitial: highestPerInitial == freezed
+          ? _value.highestPerInitial
+          : highestPerInitial // ignore: cast_nullable_to_non_nullable
               as double,
       oddDistribution: oddDistribution == freezed
           ? _value.oddDistribution
@@ -151,11 +160,12 @@ abstract class _$ResultDataModelCopyWith<$Res>
   $Res call(
       {int initialNumber,
       List<ChartData> data,
+      int totalSteps,
       int totalOddNumber,
       int totalEvenNumber,
       int highestNumber,
       int highestNumberAt,
-      double lenghtPerSteps,
+      double highestPerInitial,
       double oddDistribution,
       double evenDistribution});
 }
@@ -175,11 +185,12 @@ class __$ResultDataModelCopyWithImpl<$Res>
   $Res call({
     Object? initialNumber = freezed,
     Object? data = freezed,
+    Object? totalSteps = freezed,
     Object? totalOddNumber = freezed,
     Object? totalEvenNumber = freezed,
     Object? highestNumber = freezed,
     Object? highestNumberAt = freezed,
-    Object? lenghtPerSteps = freezed,
+    Object? highestPerInitial = freezed,
     Object? oddDistribution = freezed,
     Object? evenDistribution = freezed,
   }) {
@@ -192,6 +203,10 @@ class __$ResultDataModelCopyWithImpl<$Res>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ChartData>,
+      totalSteps: totalSteps == freezed
+          ? _value.totalSteps
+          : totalSteps // ignore: cast_nullable_to_non_nullable
+              as int,
       totalOddNumber: totalOddNumber == freezed
           ? _value.totalOddNumber
           : totalOddNumber // ignore: cast_nullable_to_non_nullable
@@ -208,9 +223,9 @@ class __$ResultDataModelCopyWithImpl<$Res>
           ? _value.highestNumberAt
           : highestNumberAt // ignore: cast_nullable_to_non_nullable
               as int,
-      lenghtPerSteps: lenghtPerSteps == freezed
-          ? _value.lenghtPerSteps
-          : lenghtPerSteps // ignore: cast_nullable_to_non_nullable
+      highestPerInitial: highestPerInitial == freezed
+          ? _value.highestPerInitial
+          : highestPerInitial // ignore: cast_nullable_to_non_nullable
               as double,
       oddDistribution: oddDistribution == freezed
           ? _value.oddDistribution
@@ -230,11 +245,12 @@ class _$_ResultDataModel implements _ResultDataModel {
   _$_ResultDataModel(
       {required this.initialNumber,
       required this.data,
+      required this.totalSteps,
       required this.totalOddNumber,
       required this.totalEvenNumber,
       required this.highestNumber,
       required this.highestNumberAt,
-      required this.lenghtPerSteps,
+      required this.highestPerInitial,
       required this.oddDistribution,
       required this.evenDistribution});
 
@@ -242,6 +258,8 @@ class _$_ResultDataModel implements _ResultDataModel {
   final int initialNumber;
   @override
   final List<ChartData> data;
+  @override
+  final int totalSteps;
   @override
   final int totalOddNumber;
   @override
@@ -251,7 +269,7 @@ class _$_ResultDataModel implements _ResultDataModel {
   @override
   final int highestNumberAt;
   @override
-  final double lenghtPerSteps;
+  final double highestPerInitial;
   @override
   final double oddDistribution;
   @override
@@ -259,7 +277,7 @@ class _$_ResultDataModel implements _ResultDataModel {
 
   @override
   String toString() {
-    return 'ResultDataModel(initialNumber: $initialNumber, data: $data, totalOddNumber: $totalOddNumber, totalEvenNumber: $totalEvenNumber, highestNumber: $highestNumber, highestNumberAt: $highestNumberAt, lenghtPerSteps: $lenghtPerSteps, oddDistribution: $oddDistribution, evenDistribution: $evenDistribution)';
+    return 'ResultDataModel(initialNumber: $initialNumber, data: $data, totalSteps: $totalSteps, totalOddNumber: $totalOddNumber, totalEvenNumber: $totalEvenNumber, highestNumber: $highestNumber, highestNumberAt: $highestNumberAt, highestPerInitial: $highestPerInitial, oddDistribution: $oddDistribution, evenDistribution: $evenDistribution)';
   }
 
   @override
@@ -271,6 +289,8 @@ class _$_ResultDataModel implements _ResultDataModel {
                 .equals(other.initialNumber, initialNumber) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality()
+                .equals(other.totalSteps, totalSteps) &&
+            const DeepCollectionEquality()
                 .equals(other.totalOddNumber, totalOddNumber) &&
             const DeepCollectionEquality()
                 .equals(other.totalEvenNumber, totalEvenNumber) &&
@@ -279,7 +299,7 @@ class _$_ResultDataModel implements _ResultDataModel {
             const DeepCollectionEquality()
                 .equals(other.highestNumberAt, highestNumberAt) &&
             const DeepCollectionEquality()
-                .equals(other.lenghtPerSteps, lenghtPerSteps) &&
+                .equals(other.highestPerInitial, highestPerInitial) &&
             const DeepCollectionEquality()
                 .equals(other.oddDistribution, oddDistribution) &&
             const DeepCollectionEquality()
@@ -291,11 +311,12 @@ class _$_ResultDataModel implements _ResultDataModel {
       runtimeType,
       const DeepCollectionEquality().hash(initialNumber),
       const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(totalSteps),
       const DeepCollectionEquality().hash(totalOddNumber),
       const DeepCollectionEquality().hash(totalEvenNumber),
       const DeepCollectionEquality().hash(highestNumber),
       const DeepCollectionEquality().hash(highestNumberAt),
-      const DeepCollectionEquality().hash(lenghtPerSteps),
+      const DeepCollectionEquality().hash(highestPerInitial),
       const DeepCollectionEquality().hash(oddDistribution),
       const DeepCollectionEquality().hash(evenDistribution));
 
@@ -309,11 +330,12 @@ abstract class _ResultDataModel implements ResultDataModel {
   factory _ResultDataModel(
       {required int initialNumber,
       required List<ChartData> data,
+      required int totalSteps,
       required int totalOddNumber,
       required int totalEvenNumber,
       required int highestNumber,
       required int highestNumberAt,
-      required double lenghtPerSteps,
+      required double highestPerInitial,
       required double oddDistribution,
       required double evenDistribution}) = _$_ResultDataModel;
 
@@ -321,6 +343,8 @@ abstract class _ResultDataModel implements ResultDataModel {
   int get initialNumber;
   @override
   List<ChartData> get data;
+  @override
+  int get totalSteps;
   @override
   int get totalOddNumber;
   @override
@@ -330,7 +354,7 @@ abstract class _ResultDataModel implements ResultDataModel {
   @override
   int get highestNumberAt;
   @override
-  double get lenghtPerSteps;
+  double get highestPerInitial;
   @override
   double get oddDistribution;
   @override

@@ -1,9 +1,8 @@
 import 'package:collatz_conjecture/src/features/home/data/models/result_data_model.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
-import 'package:collatz_conjecture/src/utils/extensions.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/base_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
 
 class ChartResultBuilder extends StatelessWidget {
   const ChartResultBuilder({Key? key}) : super(key: key);
@@ -22,19 +21,17 @@ class ChartResultBuilder extends StatelessWidget {
             orElse: () => const SizedBox(),
             initial: (v) => const SizedBox(),
             succees: (v) => ChartResult(resultDataModel: v.result),
-            loading: (v) => Shimmer.fromColors(
-              baseColor: context.themeData.cardColor,
-              highlightColor: context.themeData.colorScheme.primary,
-              enabled: true,
+            loading: (v) => BaseShimmer(
               child: ChartResult(
                 resultDataModel: ResultDataModel(
+                  totalSteps: 1,
                   initialNumber: 1,
                   data: [],
                   totalOddNumber: 1,
                   totalEvenNumber: 1,
                   highestNumber: 1,
                   highestNumberAt: 1,
-                  lenghtPerSteps: 1,
+                  highestPerInitial: 1,
                   oddDistribution: 1,
                   evenDistribution: 1,
                 ),
@@ -71,7 +68,7 @@ class ChartResult extends StatelessWidget {
           const Divider(),
           ListTile(
             title: const Text('Number of step to reach 1'),
-            trailing: Text('${resultDataModel.data.length} Steps'),
+            trailing: Text('${resultDataModel.totalSteps} Steps'),
           ),
           const Divider(),
           ListTile(
@@ -97,9 +94,9 @@ class ChartResult extends StatelessWidget {
           ListTile(
             title: const Text('Largest value / Initial value'),
             trailing: Text(
-              resultDataModel.lenghtPerSteps.toString().length >= 4
-                  ? resultDataModel.lenghtPerSteps.toString().substring(0, 4)
-                  : resultDataModel.lenghtPerSteps.toString(),
+              resultDataModel.highestPerInitial.toString().length >= 4
+                  ? resultDataModel.highestPerInitial.toString().substring(0, 4)
+                  : resultDataModel.highestPerInitial.toString(),
             ),
           ),
         ],

@@ -16,6 +16,7 @@ Future<void> main() async {
   FlutterNativeSplash.remove();
 
   devLogger.i('Starting App');
+
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   ).whenComplete(() => runApp(const MyApp()));
