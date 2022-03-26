@@ -2,9 +2,11 @@ import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/chart_result.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/collatz_summary.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/fa_button.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/license_button.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/line_chart.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/pie_chart.dart';
 import 'package:collatz_conjecture/src/features/theme/presentation/widgets/switch_theme_button.dart';
+import 'package:collatz_conjecture/src/utils/constants.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +38,7 @@ class _HomePageState extends State<HomePage> {
               title: FittedBox(
                 fit: BoxFit.fitWidth,
                 child: Text(
-                  'Collatz Conjecture',
+                  Constanst.string.appTitle,
                   style: context.themeData.textTheme.headline4
                       ?.copyWith(fontWeight: FontWeight.bold),
                 ),
@@ -65,9 +67,8 @@ class _HomePageState extends State<HomePage> {
                     const LineChartBuilder(),
                     const PieChartBuilder(),
                     const ChartResultBuilder(),
-                    const SizedBox.square(
-                      dimension: kToolbarHeight * 3 / 2,
-                    ),
+                    const LicenseButton(),
+                    const SizedBox.square(dimension: kToolbarHeight * 3 / 2),
                   ]),
                 ),
               ),

@@ -2,8 +2,8 @@ import 'package:collatz_conjecture/src/features/home/data/models/result_data_mod
 import 'package:collatz_conjecture/src/services/failure/failure.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class CollatzConjectureRepositories {
+abstract class CollatzConjectureRepository {
   Future<Either<Failure, ResultDataModel>> processNumber({
-    required int number,
+    required int initial,
   });
 }

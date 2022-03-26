@@ -1,3 +1,4 @@
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/license_button.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/negative_image.dart';
 import 'package:collatz_conjecture/src/features/theme/presentation/cubit/theme_cubit.dart';
 import 'package:collatz_conjecture/src/utils/assets.gen.dart';
@@ -20,7 +21,7 @@ class CollatzSummary extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SelectableText(
-                  Constanst.text1,
+                  Constanst.string.collatzSummary,
                   textAlign: TextAlign.justify,
                   style: context.themeData.textTheme.subtitle1,
                 ),
@@ -55,6 +56,7 @@ class CollatzSummary extends StatelessWidget {
               ),
             ),
           ),
+          const LicenseButton(),
           const SizedBox.square(dimension: kToolbarHeight * 3 / 2),
         ],
       ),
