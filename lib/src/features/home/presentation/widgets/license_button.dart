@@ -11,16 +11,8 @@ class LicenseButton extends StatelessWidget {
       child: SizedBox(
         width: context.width / 3,
         child: OutlinedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const AppLicensePage(),
-              ),
-            );
-
-            // showLicensePage(context: context, useRootNavigator: true);
-          },
+          onPressed: () =>
+              Navigator.pushNamed(context, AppLicensesPage.routeName),
           child: const Text('Licenses'),
         ),
       ),

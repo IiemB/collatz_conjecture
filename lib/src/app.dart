@@ -1,5 +1,6 @@
 import 'package:collatz_conjecture/src/configs/themes.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/pages/home_page.dart';
+import 'package:collatz_conjecture/src/features/license/presentation/cubit/license_cubit.dart';
 import 'package:collatz_conjecture/src/features/theme/presentation/cubit/theme_cubit.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
 import 'package:collatz_conjecture/src/services/injector/injector.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => getIt<ThemeCubit>()),
         BlocProvider(create: (context) => getIt<CollatzNumberCubit>()),
+        BlocProvider(create: (context) => getIt<LicenseCubit>()),
       ],
       child: BlocBuilder<ThemeCubit, int>(
         builder: (context, state) {

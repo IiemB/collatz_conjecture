@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
-  static const routeName = 'HomePage';
+  static const routeName = '/homePage';
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -29,51 +29,54 @@ class _HomePageState extends State<HomePage> {
     return WillPopScope(
       onWillPop: () async => await _handleWillPop(context),
       child: Scaffold(
-        body: CustomScrollView(
-          physics: const BouncingScrollPhysics(),
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Colors.transparent,
-              automaticallyImplyLeading: false,
-              title: FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text(
-                  Constanst.string.appTitle,
-                  style: context.themeData.textTheme.headline4
-                      ?.copyWith(fontWeight: FontWeight.bold),
-                ),
-              ),
-              actions: const [
-                SwitchThemeButton(),
-              ],
-            ),
-            BlocConsumer<CollatzNumberCubit, CollatzNumberState>(
-              listener: (context, state) {
-                state.maybeMap(
-                  orElse: () {},
-                  error: (v) => context.showSnackBar(
-                    v.failure.message ?? v.failure.toString(),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverAppBar(
+                backgroundColor: Colors.transparent,
+                automaticallyImplyLeading: false,
+                title: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    Constanst.string.appTitle,
+                    style: context.themeData.textTheme.headline4
+                        ?.copyWith(fontWeight: FontWeight.bold),
                   ),
-                );
-              },
-              buildWhen: (previous, current) =>
-                  current is CollatzNumberStateLoading ||
-                  current is CollatzNumberStateSuccess ||
-                  current is CollatzNumberStateInitial,
-              builder: (context, state) => state.maybeMap(
-                initial: (v) => const CollatzSummary(),
-                orElse: () => SliverList(
-                  delegate: SliverChildListDelegate([
-                    const LineChartBuilder(),
-                    const PieChartBuilder(),
-                    const ChartResultBuilder(),
-                    const LicenseButton(),
-                    const SizedBox.square(dimension: kToolbarHeight * 3 / 2),
-                  ]),
+                ),
+                actions: const [
+                  SwitchThemeButton(),
+                ],
+              ),
+              BlocConsumer<CollatzNumberCubit, CollatzNumberState>(
+                listener: (context, state) {
+                  state.maybeMap(
+                    orElse: () {},
+                    error: (v) => context.showSnackBar(
+                      v.failure.message ?? v.failure.toString(),
+                    ),
+                  );
+                },
+                buildWhen: (previous, current) =>
+                    current is CollatzNumberStateLoading ||
+                    current is CollatzNumberStateSuccess ||
+                    current is CollatzNumberStateInitial,
+                builder: (context, state) => state.maybeMap(
+                  initial: (v) => const CollatzSummary(),
+                  orElse: () => SliverList(
+                    delegate: SliverChildListDelegate([
+                      const LineChartBuilder(),
+                      const PieChartBuilder(),
+                      const ChartResultBuilder(),
+                      const LicenseButton(),
+                      const SizedBox.square(dimension: kToolbarHeight * 3 / 2),
+                    ]),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         floatingActionButton: const FAButton(),
       ),

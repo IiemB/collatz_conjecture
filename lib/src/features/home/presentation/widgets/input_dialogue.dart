@@ -1,8 +1,6 @@
-import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
 import 'package:collatz_conjecture/src/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InputDialogue extends StatefulWidget {
   const InputDialogue({Key? key}) : super(key: key);
@@ -32,6 +30,7 @@ class _InputDialogueState extends State<InputDialogue> {
           keyboardType: TextInputType.number,
           controller: _inputNumberController,
           focusNode: _focusNode,
+          textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
             hintText: 'Initial number',
             helperText: 'Number must be\ngreater than 0',
@@ -43,7 +42,8 @@ class _InputDialogueState extends State<InputDialogue> {
             if (value != null) {
               if (value.isEmpty ||
                   !Validators.isNumericOnly(value) ||
-                  value == '0') {
+                  value == '0' ||
+                  value.length > 10) {
                 return 'Invalid number';
               }
             }
@@ -54,9 +54,7 @@ class _InputDialogueState extends State<InputDialogue> {
             final _isFormValid = _formKey.currentState?.validate() ?? false;
 
             if (_isFormValid) {
-              Navigator.pop(context);
-              BlocProvider.of<CollatzNumberCubit>(context)
-                  .processNumber(int.parse(value));
+              Navigator.pop<int>(context, int.tryParse(value));
             }
           },
         ),

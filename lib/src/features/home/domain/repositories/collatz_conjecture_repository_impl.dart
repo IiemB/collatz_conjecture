@@ -7,7 +7,7 @@ import 'package:collatz_conjecture/src/services/failure/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-@Singleton(as: CollatzConjectureRepository)
+@LazySingleton(as: CollatzConjectureRepository)
 class CollatzConjectureRepositoryImpl implements CollatzConjectureRepository {
   final CollatzConjectureUsecase _collatzConjectureUsecase;
 

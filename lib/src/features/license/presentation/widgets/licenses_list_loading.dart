@@ -7,14 +7,22 @@ class LicenseListLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList(
-      delegate: SliverChildListDelegate(
-        List<Widget>.generate(
-          10,
-          (index) => const BaseShimmer(
-            child: Card(child: ListTile()),
+      delegate: SliverChildListDelegate([
+        BaseShimmer(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: List<Widget>.generate(
+              20,
+              (index) => const Card(
+                child: ListTile(
+                  title: Text('packageName'),
+                  subtitle: Text('Licenses'),
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
+        )
+      ]),
     );
   }
 }

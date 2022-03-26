@@ -17,9 +17,14 @@ class FAButton extends StatelessWidget {
             succees: (value) => 'Reset',
           ),
           onPressed: () => state.mapOrNull(
-            initial: (value) => showDialog(
+            initial: (value) async => await showDialog<int>(
               context: context,
               builder: (context) => const InputDialogue(),
+            ).then(
+              (value) => value == null
+                  ? null
+                  : BlocProvider.of<CollatzNumberCubit>(context)
+                      .processNumber(value),
             ),
             succees: (v) =>
                 BlocProvider.of<CollatzNumberCubit>(context).resetState(),

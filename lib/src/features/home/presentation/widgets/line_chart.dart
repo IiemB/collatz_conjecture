@@ -15,29 +15,26 @@ class LineChartBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
-        buildWhen: (previous, current) =>
-            current is CollatzNumberStateLoading ||
-            current is CollatzNumberStateSuccess ||
-            current is CollatzNumberStateInitial,
-        builder: (context, state) {
-          return state.maybeMap(
-            orElse: () => const SizedBox(),
-            initial: (v) => const SizedBox(),
-            succees: (v) => _LineChart(chartData: v.result.data),
-            loading: (v) => BaseShimmer(
-              child: _LineChart(
-                chartData: List<ChartData>.generate(
-                  3,
-                  (index) => ChartData(index, index),
-                ),
+    return BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
+      buildWhen: (previous, current) =>
+          current is CollatzNumberStateLoading ||
+          current is CollatzNumberStateSuccess ||
+          current is CollatzNumberStateInitial,
+      builder: (context, state) {
+        return state.maybeMap(
+          orElse: () => const SizedBox(),
+          initial: (v) => const SizedBox(),
+          succees: (v) => _LineChart(chartData: v.result.data),
+          loading: (v) => BaseShimmer(
+            child: _LineChart(
+              chartData: List<ChartData>.generate(
+                3,
+                (index) => ChartData(index, index),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
@@ -124,41 +121,38 @@ class _LineChartState extends State<_LineChart> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Card(
-              child: SfRangeSelectorTheme(
-                data: SfRangeSelectorThemeData(thumbRadius: 8),
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(8, 4, 8, 0),
-                  width: context.width,
-                  child: Center(
-                    child: SfRangeSelector(
-                      enableDeferredUpdate: true,
-                      min: 0.toDouble(),
-                      max: widget.chartData.last.x.toDouble(),
-                      labelPlacement: LabelPlacement.betweenTicks,
-                      controller: _rangeController,
-                      dragMode: SliderDragMode.onThumb,
-                      child: SizedBox(
-                        height: context.height / 14,
-                        child: SfCartesianChart(
-                          margin: EdgeInsets.zero,
-                          primaryXAxis: NumericAxis(isVisible: true),
-                          primaryYAxis: NumericAxis(isVisible: false),
-                          plotAreaBorderWidth: 0,
-                          series: <SplineAreaSeries<ChartData, int>>[
-                            SplineAreaSeries<ChartData, int>(
-                              dataSource: widget.chartData,
-                              borderColor: const Color.fromRGBO(0, 193, 187, 1),
-                              color: const Color.fromRGBO(163, 226, 224, 1),
-                              borderDrawMode: BorderDrawMode.excludeBottom,
-                              borderWidth: 1,
-                              xValueMapper: (ChartData data, _) => data.x,
-                              yValueMapper: (ChartData data, _) => data.y,
-                            )
-                          ],
-                        ),
+          Card(
+            child: SfRangeSelectorTheme(
+              data: SfRangeSelectorThemeData(thumbRadius: 8),
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(8, 4, 8, 0),
+                width: context.width,
+                child: Center(
+                  child: SfRangeSelector(
+                    enableDeferredUpdate: true,
+                    min: 0.toDouble(),
+                    max: widget.chartData.last.x.toDouble(),
+                    labelPlacement: LabelPlacement.betweenTicks,
+                    controller: _rangeController,
+                    dragMode: SliderDragMode.onThumb,
+                    child: SizedBox(
+                      height: context.height / 14,
+                      child: SfCartesianChart(
+                        margin: EdgeInsets.zero,
+                        primaryXAxis: NumericAxis(isVisible: true),
+                        primaryYAxis: NumericAxis(isVisible: false),
+                        plotAreaBorderWidth: 0,
+                        series: <SplineAreaSeries<ChartData, int>>[
+                          SplineAreaSeries<ChartData, int>(
+                            dataSource: widget.chartData,
+                            borderColor: const Color.fromRGBO(0, 193, 187, 1),
+                            color: const Color.fromRGBO(163, 226, 224, 1),
+                            borderDrawMode: BorderDrawMode.excludeBottom,
+                            borderWidth: 1,
+                            xValueMapper: (ChartData data, _) => data.x,
+                            yValueMapper: (ChartData data, _) => data.y,
+                          )
+                        ],
                       ),
                     ),
                   ),

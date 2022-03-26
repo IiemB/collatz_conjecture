@@ -10,32 +10,29 @@ class PieChartBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
-        buildWhen: (previous, current) =>
-            current is CollatzNumberStateLoading ||
-            current is CollatzNumberStateSuccess ||
-            current is CollatzNumberStateInitial,
-        builder: (context, state) {
-          return state.maybeMap(
-            orElse: () => const SizedBox(),
-            initial: (v) => const SizedBox(),
-            succees: (v) => _PieChart(
-              evenDistribution: v.result.evenDistribution,
-              oddDistribution: v.result.oddDistribution,
-            ),
-            loading: (v) => BaseShimmer(
-              child: Card(
-                child: SizedBox(
-                  height: context.height / 1.5,
-                  width: context.width,
-                ),
+    return BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
+      buildWhen: (previous, current) =>
+          current is CollatzNumberStateLoading ||
+          current is CollatzNumberStateSuccess ||
+          current is CollatzNumberStateInitial,
+      builder: (context, state) {
+        return state.maybeMap(
+          orElse: () => const SizedBox(),
+          initial: (v) => const SizedBox(),
+          succees: (v) => _PieChart(
+            evenDistribution: v.result.evenDistribution,
+            oddDistribution: v.result.oddDistribution,
+          ),
+          loading: (v) => BaseShimmer(
+            child: Card(
+              child: SizedBox(
+                height: context.height / 1.5,
+                width: context.width,
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

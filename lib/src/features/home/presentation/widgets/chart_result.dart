@@ -9,37 +9,34 @@ class ChartResultBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
-        buildWhen: (previous, current) =>
-            current is CollatzNumberStateLoading ||
-            current is CollatzNumberStateSuccess ||
-            current is CollatzNumberStateInitial,
-        builder: (context, state) {
-          return state.maybeMap(
-            orElse: () => const SizedBox(),
-            initial: (v) => const SizedBox(),
-            succees: (v) => ChartResult(resultDataModel: v.result),
-            loading: (v) => BaseShimmer(
-              child: ChartResult(
-                resultDataModel: ResultDataModel(
-                  totalSteps: 1,
-                  initialNumber: 1,
-                  data: [],
-                  totalOddNumber: 1,
-                  totalEvenNumber: 1,
-                  highestNumber: 1,
-                  highestNumberAt: 1,
-                  highestPerInitial: 1,
-                  oddDistribution: 1,
-                  evenDistribution: 1,
-                ),
+    return BlocBuilder<CollatzNumberCubit, CollatzNumberState>(
+      buildWhen: (previous, current) =>
+          current is CollatzNumberStateLoading ||
+          current is CollatzNumberStateSuccess ||
+          current is CollatzNumberStateInitial,
+      builder: (context, state) {
+        return state.maybeMap(
+          orElse: () => const SizedBox(),
+          initial: (v) => const SizedBox(),
+          succees: (v) => ChartResult(resultDataModel: v.result),
+          loading: (v) => BaseShimmer(
+            child: ChartResult(
+              resultDataModel: ResultDataModel(
+                totalSteps: 1,
+                initialNumber: 1,
+                data: [],
+                totalOddNumber: 1,
+                totalEvenNumber: 1,
+                highestNumber: 1,
+                highestNumberAt: 1,
+                highestPerInitial: 1,
+                oddDistribution: 1,
+                evenDistribution: 1,
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
