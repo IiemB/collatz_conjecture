@@ -27,6 +27,7 @@ class _InputDialogueState extends State<InputDialogue> {
       content: Form(
         key: _formKey,
         child: TextFormField(
+          autofocus: true,
           keyboardType: TextInputType.number,
           controller: _inputNumberController,
           focusNode: _focusNode,

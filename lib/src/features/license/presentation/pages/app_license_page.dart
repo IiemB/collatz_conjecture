@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppLicensesPage extends StatelessWidget {
-  static const routeName = '/appLicensesPage';
+  static const routeName = '/licenses';
   const AppLicensesPage({Key? key}) : super(key: key);
 
   @override
@@ -22,6 +22,7 @@ class AppLicensesPage extends StatelessWidget {
             slivers: [
               SliverAppBar(
                 backgroundColor: Colors.transparent,
+                floating: true,
                 leading: IconButton(
                   tooltip: 'Back',
                   onPressed: () => Navigator.pop(context),
@@ -36,26 +37,6 @@ class AppLicensesPage extends StatelessWidget {
                     Constanst.string.licenseAppBarTitle,
                     style: context.themeData.textTheme.headline4
                         ?.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                bottom: PreferredSize(
-                  preferredSize: const Size.fromHeight(kToolbarHeight),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: kToolbarHeight / 4,
-                    ),
-                    child: FittedBox(
-                      fit: BoxFit.contain,
-                      child: Column(
-                        children: [
-                          Text(
-                            Constanst.string.appTitle,
-                            style: context.themeData.textTheme.headline4,
-                          ),
-                          const Text('Powered by Flutter')
-                        ],
-                      ),
-                    ),
                   ),
                 ),
               ),

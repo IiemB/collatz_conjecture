@@ -9,6 +9,7 @@ import 'package:collatz_conjecture/src/features/home/presentation/widgets/pie_ch
 import 'package:collatz_conjecture/src/features/theme/presentation/widgets/switch_theme_button.dart';
 import 'package:collatz_conjecture/src/utils/constants.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => await _handleWillPop(context),
+      onWillPop: () async => kIsWeb ? false : await _handleWillPop(context),
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -38,6 +39,7 @@ class _HomePageState extends State<HomePage> {
               slivers: [
                 SliverAppBar(
                   backgroundColor: Colors.transparent,
+                  floating: true,
                   automaticallyImplyLeading: false,
                   title: FittedBox(
                     fit: BoxFit.fitWidth,
@@ -48,6 +50,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   actions: const [
+                    LicenseButton(),
+                    SizedBox.square(dimension: 8),
                     SwitchThemeButton(),
                   ],
                 ),
@@ -72,7 +76,6 @@ class _HomePageState extends State<HomePage> {
                         const NumberListBuilder(),
                         const PieChartBuilder(),
                         const ChartResultBuilder(),
-                        const LicenseButton(),
                         const SizedBox.square(
                           dimension: kToolbarHeight * 3 / 2,
                         ),

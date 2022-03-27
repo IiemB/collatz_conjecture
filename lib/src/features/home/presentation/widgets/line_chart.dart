@@ -104,18 +104,12 @@ class _LineChartState extends State<_LineChart> {
                     dataSource: widget.chartData,
                   )
                 ],
-                tooltipBehavior: TooltipBehavior(
-                  animationDuration: 0,
-                  shadowColor: Colors.transparent,
-                  enable: true,
-                  format: 'Step point.x - point.y',
-                ),
                 trackballBehavior: TrackballBehavior(
                   enable: true,
                   activationMode: ActivationMode.singleTap,
                   lineType: TrackballLineType.horizontal,
                   tooltipSettings: const InteractiveTooltip(
-                    format: 'Step point.x\npoint.y',
+                    format: 'point.y\nStep point.x',
                   ),
                 ),
               ),

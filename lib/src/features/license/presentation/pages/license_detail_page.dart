@@ -7,7 +7,7 @@ typedef PackageName = String;
 typedef LicenseEntries = List<LicenseEntry>;
 
 class LicenseDetailsPage extends StatelessWidget {
-  static const routeName = '/licensesDetailsPage';
+  static const routeName = '/license-detail';
 
   final PackageName packageName;
   final LicenseEntries licenseEntries;
@@ -30,6 +30,7 @@ class LicenseDetailsPage extends StatelessWidget {
             slivers: [
               SliverAppBar(
                 backgroundColor: Colors.transparent,
+                floating: true,
                 leading: IconButton(
                   tooltip: 'Back',
                   onPressed: () => Navigator.pop(context),

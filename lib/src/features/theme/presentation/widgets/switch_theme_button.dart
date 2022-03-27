@@ -13,36 +13,18 @@ class SwitchThemeButton extends StatelessWidget {
       child: SizedBox(
         height: kToolbarHeight,
         width: kToolbarHeight,
-        child: Container(
-          height: kToolbarHeight,
-          width: kToolbarHeight,
-          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: context.themeData.textTheme.headline4?.color ??
-                  context.themeData.colorScheme.primary,
-              width: 3,
-            ),
-          ),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(kToolbarHeight / 2),
-            onTap: () => BlocProvider.of<ThemeCubit>(context).changeTheme(),
-            child: BlocBuilder<ThemeCubit, int>(
-              builder: (context, state) => state != 0
+        child: InkWell(
+          borderRadius: BorderRadius.circular(kToolbarHeight / 2),
+          onTap: () => BlocProvider.of<ThemeCubit>(context).changeTheme(),
+          child: BlocBuilder<ThemeCubit, int>(
+            builder: (context, state) => Icon(
+              state != 0
                   ? state == 1
-                      ? Icon(
-                          Icons.dark_mode,
-                          color: context.themeData.textTheme.headline4?.color,
-                        )
-                      : Icon(
-                          Icons.light_mode_outlined,
-                          color: context.themeData.textTheme.headline4?.color,
-                        )
-                  : Icon(
-                      Icons.dark_mode_outlined,
-                      color: context.themeData.textTheme.headline4?.color,
-                    ),
+                      ? Icons.dark_mode
+                      : Icons.light_mode_outlined
+                  : Icons.dark_mode_outlined,
+              color: context.themeData.textTheme.headline4?.color,
+              size: kToolbarHeight / 1.5,
             ),
           ),
         ),
