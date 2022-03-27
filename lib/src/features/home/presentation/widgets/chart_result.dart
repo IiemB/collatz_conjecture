@@ -91,9 +91,7 @@ class ChartResult extends StatelessWidget {
           ListTile(
             title: const Text('Largest value / Initial value'),
             trailing: Text(
-              resultDataModel.highestPerInitial.toString().length >= 4
-                  ? resultDataModel.highestPerInitial.toString().substring(0, 4)
-                  : resultDataModel.highestPerInitial.toString(),
+              resultDataModel.highestPerInitial.toStringAsFixed(3),
             ),
           ),
         ],

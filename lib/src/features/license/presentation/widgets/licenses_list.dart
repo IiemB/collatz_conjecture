@@ -1,6 +1,5 @@
 import 'package:collatz_conjecture/src/features/license/data/models/license_data_model/licenses_data_model.dart';
 import 'package:collatz_conjecture/src/features/license/presentation/pages/license_detail_page.dart';
-import 'package:collatz_conjecture/src/features/license/presentation/widgets/app_name_text.dart';
 import 'package:flutter/material.dart';
 
 class LicenseList extends StatelessWidget {
@@ -11,9 +10,8 @@ class LicenseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList(
-      delegate: SliverChildListDelegate([
-        const AppNameText(),
-        ...licensesDataModel.packages
+      delegate: SliverChildListDelegate(
+        licensesDataModel.packages
             .asMap()
             .entries
             .map<Widget>((MapEntry<int, String> entry) {
@@ -43,7 +41,7 @@ class LicenseList extends StatelessWidget {
             ),
           );
         }).toList(),
-      ]),
+      ),
     );
   }
 }

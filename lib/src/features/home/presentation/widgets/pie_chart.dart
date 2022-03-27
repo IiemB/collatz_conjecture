@@ -71,7 +71,7 @@ class _PieChart extends StatelessWidget {
                 xValueMapper: (data, _) => data['set'] as String,
                 yValueMapper: (data, _) => data['value'] as num,
                 dataLabelMapper: (data, _) =>
-                    '${data['set']} \n ${data['value'].toString().length >= 5 ? data['value'].toString().substring(0, 5) : data['value']} %',
+                    '${data['set']}\n${num.tryParse(data['value'].toString())?.toStringAsFixed(1)} %',
                 startAngle: 90,
                 endAngle: 90,
                 dataLabelSettings: const DataLabelSettings(isVisible: true),

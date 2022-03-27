@@ -17,17 +17,26 @@ class CollatzSummary extends StatelessWidget {
           Card(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SelectableText(
-                Constanst.string.collatzSummary,
-                textAlign: TextAlign.justify,
-                style: context.themeData.textTheme.subtitle1,
+              child: Column(
+                children: [
+                  SelectableText(
+                    Constanst.string.collatzSummary2,
+                    textAlign: TextAlign.justify,
+                    style: context.themeData.textTheme.subtitle1,
+                  ),
+                  const SizedBox.square(dimension: 8),
+                  SelectableText(
+                    Constanst.string.collatzSummary2_1,
+                    textAlign: TextAlign.justify,
+                    style: context.themeData.textTheme.subtitle1,
+                  ),
+                ],
               ),
             ),
           ),
           Card(
-            child: SizedBox(
-              width: context.width,
-              height: context.height / 8,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: context.height / 6),
               child: BlocBuilder<ThemeCubit, int>(
                 builder: (context, state) {
                   return Container(

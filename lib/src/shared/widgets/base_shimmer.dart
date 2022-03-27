@@ -5,17 +5,21 @@ import 'package:shimmer/shimmer.dart';
 class BaseShimmer extends StatelessWidget {
   final Widget child;
   final ShimmerDirection shimmerDirection;
+  final Color? baseColor;
+  final Color? highlightColor;
   const BaseShimmer({
     Key? key,
     required this.child,
     this.shimmerDirection = ShimmerDirection.ltr,
+    this.baseColor,
+    this.highlightColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: context.themeData.cardColor,
-      highlightColor: context.themeData.colorScheme.secondary,
+      baseColor: baseColor ?? context.themeData.cardColor,
+      highlightColor: highlightColor ?? context.themeData.colorScheme.secondary,
       enabled: true,
       direction: shimmerDirection,
       child: child,
