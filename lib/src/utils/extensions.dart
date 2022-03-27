@@ -7,7 +7,7 @@ extension ContextExtensions on BuildContext {
 
   double get height => MediaQuery.of(this).size.height;
 
-  void showSnackBar(
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(
     String message, {
     Duration duration = const Duration(seconds: 3),
   }) =>
@@ -17,4 +17,7 @@ extension ContextExtensions on BuildContext {
           content: Text(message),
         ),
       );
+
+  void removeCurrentSnakBar() =>
+      ScaffoldMessenger.of(this).removeCurrentSnackBar();
 }

@@ -8,24 +8,44 @@ class SwitchThemeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: context.themeData.colorScheme.primary,
-      ),
-      child: BlocBuilder<ThemeCubit, int>(
-        builder: (context, state) {
-          return IconButton(
-            tooltip: 'Change theme mode',
-            icon: state != 0
-                ? state == 1
-                    ? const Icon(Icons.dark_mode)
-                    : const Icon(Icons.light_mode_outlined)
-                : const Icon(Icons.dark_mode_outlined),
-            onPressed: () => BlocProvider.of<ThemeCubit>(context).changeTheme(),
-          );
-        },
+    return Tooltip(
+      message: 'Change theme',
+      child: SizedBox(
+        height: kToolbarHeight,
+        width: kToolbarHeight,
+        child: Container(
+          height: kToolbarHeight,
+          width: kToolbarHeight,
+          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: context.themeData.textTheme.headline4?.color ??
+                  context.themeData.colorScheme.primary,
+              width: 3,
+            ),
+          ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(kToolbarHeight / 2),
+            onTap: () => BlocProvider.of<ThemeCubit>(context).changeTheme(),
+            child: BlocBuilder<ThemeCubit, int>(
+              builder: (context, state) => state != 0
+                  ? state == 1
+                      ? Icon(
+                          Icons.dark_mode,
+                          color: context.themeData.textTheme.headline4?.color,
+                        )
+                      : Icon(
+                          Icons.light_mode_outlined,
+                          color: context.themeData.textTheme.headline4?.color,
+                        )
+                  : Icon(
+                      Icons.dark_mode_outlined,
+                      color: context.themeData.textTheme.headline4?.color,
+                    ),
+            ),
+          ),
+        ),
       ),
     );
   }

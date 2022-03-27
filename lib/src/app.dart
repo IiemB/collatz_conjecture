@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, int>(
         builder: (context, state) {
           return MaterialApp(
+            navigatorKey: getIt<Routes>().navigatorKey,
             title: Constanst.string.appTitle,
             theme: Themes.getTheme(state),
             initialRoute: HomePage.routeName,

@@ -4,6 +4,7 @@ import 'package:collatz_conjecture/src/features/home/presentation/widgets/collat
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/fa_button.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/license_button.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/line_chart.dart';
+import 'package:collatz_conjecture/src/features/home/presentation/widgets/number_list.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/pie_chart.dart';
 import 'package:collatz_conjecture/src/features/theme/presentation/widgets/switch_theme_button.dart';
 import 'package:collatz_conjecture/src/utils/constants.dart';
@@ -12,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
-  static const routeName = '/homePage';
+  static const routeName = '/';
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -20,9 +21,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  DateTime _backButtonPressTime = DateTime.now();
-
-  static const _snackBarDuration = Duration(seconds: 3);
+  int _lastTimeBackButtonWasTapped = 0;
+  static const _exitTimeInMillis = 3000;
 
   @override
   Widget build(BuildContext context) {
@@ -31,51 +31,57 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4),
-          child: CustomScrollView(
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverAppBar(
-                backgroundColor: Colors.transparent,
-                automaticallyImplyLeading: false,
-                title: FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Text(
-                    Constanst.string.appTitle,
-                    style: context.themeData.textTheme.headline4
-                        ?.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                actions: const [
-                  SwitchThemeButton(),
-                ],
-              ),
-              BlocConsumer<CollatzNumberCubit, CollatzNumberState>(
-                listener: (context, state) {
-                  state.maybeMap(
-                    orElse: () {},
-                    error: (v) => context.showSnackBar(
-                      v.failure.message ?? v.failure.toString(),
+          child: Scrollbar(
+            radius: const Radius.circular(4),
+            child: CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverAppBar(
+                  backgroundColor: Colors.transparent,
+                  automaticallyImplyLeading: false,
+                  title: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      Constanst.string.appTitle,
+                      style: context.themeData.textTheme.headline4
+                          ?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                  );
-                },
-                buildWhen: (previous, current) =>
-                    current is CollatzNumberStateLoading ||
-                    current is CollatzNumberStateSuccess ||
-                    current is CollatzNumberStateInitial,
-                builder: (context, state) => state.maybeMap(
-                  initial: (v) => const CollatzSummary(),
-                  orElse: () => SliverList(
-                    delegate: SliverChildListDelegate([
-                      const LineChartBuilder(),
-                      const PieChartBuilder(),
-                      const ChartResultBuilder(),
-                      const LicenseButton(),
-                      const SizedBox.square(dimension: kToolbarHeight * 3 / 2),
-                    ]),
+                  ),
+                  actions: const [
+                    SwitchThemeButton(),
+                  ],
+                ),
+                BlocConsumer<CollatzNumberCubit, CollatzNumberState>(
+                  listener: (context, state) {
+                    state.maybeMap(
+                      orElse: () {},
+                      error: (v) => context.showSnackBar(
+                        v.failure.message ?? v.failure.toString(),
+                      ),
+                    );
+                  },
+                  buildWhen: (previous, current) =>
+                      current is CollatzNumberStateLoading ||
+                      current is CollatzNumberStateSuccess ||
+                      current is CollatzNumberStateInitial,
+                  builder: (context, state) => state.maybeMap(
+                    initial: (v) => const CollatzSummary(),
+                    orElse: () => SliverList(
+                      delegate: SliverChildListDelegate([
+                        const LineChartBuilder(),
+                        const NumberListBuilder(),
+                        const PieChartBuilder(),
+                        const ChartResultBuilder(),
+                        const LicenseButton(),
+                        const SizedBox.square(
+                          dimension: kToolbarHeight * 3 / 2,
+                        ),
+                      ]),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         floatingActionButton: const FAButton(),
@@ -84,19 +90,19 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<bool> _handleWillPop(BuildContext context) async {
-    final now = DateTime.now();
-    final backButtonHasNotBeenPressedOrSnackBarHasBeenClosed =
-        now.difference(_backButtonPressTime) > _snackBarDuration;
+    final _currentTime = DateTime.now().millisecondsSinceEpoch;
 
-    if (backButtonHasNotBeenPressedOrSnackBarHasBeenClosed) {
-      _backButtonPressTime = now;
+    if ((_currentTime - _lastTimeBackButtonWasTapped) < _exitTimeInMillis) {
+      context.removeCurrentSnakBar();
+      return true;
+    } else {
+      _lastTimeBackButtonWasTapped = DateTime.now().millisecondsSinceEpoch;
+      context.removeCurrentSnakBar();
       context.showSnackBar(
         'Tap back again to exit',
-        duration: _snackBarDuration,
+        duration: const Duration(milliseconds: _exitTimeInMillis),
       );
       return false;
     }
-
-    return true;
   }
 }

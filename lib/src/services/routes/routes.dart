@@ -11,7 +11,7 @@ class Routes {
   Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
     return MaterialPageRoute(
       settings: routeSettings,
-      builder: (context) {
+      builder: (_) {
         switch (routeSettings.name) {
           case HomePage.routeName:
             return const HomePage();
@@ -24,7 +24,11 @@ class Routes {
               licenseEntries: args['licenseEntries'] as LicenseEntries,
             );
           default:
-            return const HomePage();
+            return Scaffold(
+              body: Center(
+                child: Text('No route defined for ${routeSettings.name}'),
+              ),
+            );
         }
       },
     );

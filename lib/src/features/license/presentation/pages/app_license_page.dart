@@ -15,55 +15,67 @@ class AppLicensesPage extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),
-        child: CustomScrollView(
-          physics: const BouncingScrollPhysics(),
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Colors.transparent,
-              leading: IconButton(
-                tooltip: 'Back',
-                onPressed: () => Navigator.pop(context),
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: context.themeData.textTheme.headline4?.color,
+        child: Scrollbar(
+          radius: const Radius.circular(4),
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverAppBar(
+                backgroundColor: Colors.transparent,
+                leading: IconButton(
+                  tooltip: 'Back',
+                  onPressed: () => Navigator.pop(context),
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: context.themeData.textTheme.headline4?.color,
+                  ),
                 ),
-              ),
-              title: FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text(
-                  Constanst.string.licenseAppBarTitle,
-                  style: context.themeData.textTheme.headline4
-                      ?.copyWith(fontWeight: FontWeight.bold),
-                ),
-              ),
-              bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(kToolbarHeight),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: kToolbarHeight / 4),
+                title: FittedBox(
+                  fit: BoxFit.fitWidth,
                   child: Text(
-                    Constanst.string.appTitle,
-                    style: context.themeData.textTheme.headline4,
+                    Constanst.string.licenseAppBarTitle,
+                    style: context.themeData.textTheme.headline4
+                        ?.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(kToolbarHeight),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: kToolbarHeight / 4,
+                    ),
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: Column(
+                        children: [
+                          Text(
+                            Constanst.string.appTitle,
+                            style: context.themeData.textTheme.headline4,
+                          ),
+                          const Text('Powered by Flutter')
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-            BlocConsumer<LicenseCubit, LicenseState>(
-              bloc: BlocProvider.of<LicenseCubit>(context)..getLicense(),
-              listener: (context, state) {
-                state.maybeMap(
-                  orElse: () {},
-                  error: (v) => context.showSnackBar(
-                    v.failure.message ?? v.failure.toString(),
-                  ),
-                );
-              },
-              builder: (context, state) => state.maybeMap(
-                orElse: () => const LicenseListLoading(),
-                loaded: (v) => LicenseList(licensesDataModel: v.licensesData),
+              BlocConsumer<LicenseCubit, LicenseState>(
+                bloc: BlocProvider.of<LicenseCubit>(context)..getLicense(),
+                listener: (context, state) {
+                  state.maybeMap(
+                    orElse: () {},
+                    error: (v) => context.showSnackBar(
+                      v.failure.message ?? v.failure.toString(),
+                    ),
+                  );
+                },
+                builder: (context, state) => state.maybeMap(
+                  orElse: () => const LicenseListLoading(),
+                  loaded: (v) => LicenseList(licensesDataModel: v.licensesData),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
