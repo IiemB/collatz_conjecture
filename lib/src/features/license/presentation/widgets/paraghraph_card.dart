@@ -34,7 +34,7 @@ class ParagraphCard extends StatelessWidget {
                   if (paragraph.indent == LicenseParagraph.centeredIndent) {
                     return Padding(
                       padding: const EdgeInsets.only(top: 16.0),
-                      child: Text(
+                      child: SelectableText(
                         paragraph.text,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
@@ -49,7 +49,7 @@ class ParagraphCard extends StatelessWidget {
                         top: 8.0,
                         start: 16.0 * paragraph.indent,
                       ),
-                      child: Text(paragraph.text),
+                      child: SelectableText(paragraph.text),
                     );
                   }
                 },
