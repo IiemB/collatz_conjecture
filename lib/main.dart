@@ -1,6 +1,5 @@
 import 'package:collatz_conjecture/src/app.dart';
 import 'package:collatz_conjecture/src/configs/env.dart';
-import 'package:collatz_conjecture/src/services/dev_logger/dev_logger.dart';
 import 'package:collatz_conjecture/src/services/injector/injector.dart';
 import 'package:collatz_conjecture/src/services/shared_prefs/shared_prefs.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +13,6 @@ Future<void> main() async {
   getIt<SharedPrefsInterface>().init();
 
   FlutterNativeSplash.remove();
-
-  devLogger.i('Starting App');
 
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],

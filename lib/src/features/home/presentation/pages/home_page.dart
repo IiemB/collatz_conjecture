@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/about_button.dart';
 import 'package:collatz_conjecture/src/features/home/presentation/widgets/chart_result.dart';
@@ -39,7 +41,7 @@ class _HomePageState extends State<HomePage> {
               physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverAppBar(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: context.themeData.scaffoldBackgroundColor,
                   floating: true,
                   automaticallyImplyLeading: false,
                   title: Tooltip(
@@ -108,9 +110,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<bool> _handleWillPop(BuildContext context) async {
-    final _currentTime = DateTime.now().millisecondsSinceEpoch;
+    final currentTime = DateTime.now().millisecondsSinceEpoch;
 
-    if ((_currentTime - _lastTimeBackButtonWasTapped) < _exitTimeInMillis) {
+    if ((currentTime - _lastTimeBackButtonWasTapped) < _exitTimeInMillis) {
       context.removeCurrentSnakBar();
       return true;
     } else {

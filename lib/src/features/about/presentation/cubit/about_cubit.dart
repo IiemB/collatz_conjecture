@@ -18,9 +18,9 @@ class AboutCubit extends Cubit<AboutState> {
 
     await Future.delayed(const Duration(seconds: 4));
 
-    final _result = await _aboutRepository.getAppInfo();
+    final result = await _aboutRepository.getAppInfo();
 
-    _result.fold(
+    result.fold(
       (l) => emit(AboutState.error(l)),
       (r) => emit(AboutState.infoLoaded(r)),
     );

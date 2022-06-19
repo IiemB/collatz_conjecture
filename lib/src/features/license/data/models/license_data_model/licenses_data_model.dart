@@ -22,11 +22,11 @@ class LicensesDataModel {
   }
 
   void _addPackage(String package) {
-    String? _firstPackage;
+    String? firstPackage;
 
     if (!packageLicenseBindings.containsKey(package)) {
       packageLicenseBindings[package] = <int>[];
-      _firstPackage ??= package;
+      firstPackage ??= package;
       packages.add(package);
     }
   }

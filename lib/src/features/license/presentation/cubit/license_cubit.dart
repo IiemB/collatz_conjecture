@@ -16,9 +16,9 @@ class LicenseCubit extends Cubit<LicenseState> {
   void getLicense() async {
     emit(const LicenseState.loading());
 
-    final _result = await _licenseRepository.getLicensesData();
+    final result = await _licenseRepository.getLicensesData();
 
-    _result.fold(
+    result.fold(
       (l) => emit(LicenseState.error(l)),
       (r) => emit(LicenseState.loaded(r)),
     );

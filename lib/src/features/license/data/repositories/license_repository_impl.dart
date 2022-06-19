@@ -13,8 +13,8 @@ class LicenseRepositoryImpl implements LicenseRepository {
   @override
   Future<Either<Failure, LicensesDataModel>> getLicensesData() async {
     try {
-      final _result = await _licenseDataSource.getAppLicenses();
-      return right(_result);
+      final result = await _licenseDataSource.getAppLicenses();
+      return right(result);
     } on Exception catch (e) {
       return left(Failure(e.toString()));
     }

@@ -18,10 +18,10 @@ class CollatzConjectureRepositoryImpl implements CollatzConjectureRepository {
     required int initial,
   }) async {
     try {
-      final _resultData =
+      final resultData =
           await _collatzConjectureUsecase.procesNumber(initial: initial);
 
-      return right(_resultData);
+      return right(resultData);
     } on Exception catch (e) {
       return left(Failure(e.toString()));
     }

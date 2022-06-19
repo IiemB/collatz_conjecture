@@ -52,14 +52,31 @@ class _InputDialogueState extends State<InputDialogue> {
           },
           onFieldSubmitted: (value) {
             _focusNode.unfocus();
-            final _isFormValid = _formKey.currentState?.validate() ?? false;
+            final isFormValid = _formKey.currentState?.validate() ?? false;
 
-            if (_isFormValid) {
+            if (isFormValid) {
               Navigator.pop<int>(context, int.tryParse(value));
             }
           },
         ),
       ),
+      actionsAlignment: MainAxisAlignment.center,
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            _focusNode.unfocus();
+            final isFormValid = _formKey.currentState?.validate() ?? false;
+
+            if (isFormValid) {
+              Navigator.pop<int>(
+                context,
+                int.tryParse(_inputNumberController.text),
+              );
+            }
+          },
+          child: const Text('Confirm Number'),
+        ),
+      ],
     );
   }
 }

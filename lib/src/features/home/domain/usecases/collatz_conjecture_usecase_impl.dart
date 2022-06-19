@@ -10,66 +10,65 @@ class CollatzConjectureUsecaseImpl implements CollatzConjectureUsecase {
   @override
   Future<ResultDataModel> procesNumber({required int initial}) async {
     try {
-      final _completer = Completer();
+      final completer = Completer();
 
-      final _data = List<ChartData>.empty(growable: true);
+      final data = List<ChartData>.empty(growable: true);
       int value = initial < 0 ? initial * -1 : initial;
       int index = 0;
 
-      _data.add(ChartData(index, value));
+      data.add(ChartData(index, value));
 
       await Future.microtask(() {
         do {
           index++;
           if (value.isEven) {
             value = _processEvenNumber(value);
-            _data.add(ChartData(index, value));
+            data.add(ChartData(index, value));
           } else {
             value = _processOddNumber(value);
-            _data.add(ChartData(index, value));
+            data.add(ChartData(index, value));
           }
         } while (value != 1);
-      }).whenComplete(() => _completer.complete());
+      }).whenComplete(() => completer.complete());
 
-      final _data2 = List<ChartData>.from(_data);
+      final data2 = List<ChartData>.from(data);
 
-      if (_completer.isCompleted) {
-        _data2.removeAt(0);
+      if (completer.isCompleted) {
+        data2.removeAt(0);
 
-        final _initialNumber = _data.first.y;
-        final _totalOddSteps =
-            _data2.where((element) => element.y.isOdd).length;
-        final _totalSteps = _data.length - 1;
-        final _totalEvenSteps =
-            _data2.where((element) => element.y.isEven).length;
-        final _highestNumber = _data
+        final initialNumber = data.first.y;
+        final totalOddSteps = data2.where((element) => element.y.isOdd).length;
+        final totalSteps = data.length - 1;
+        final totalEvenSteps =
+            data2.where((element) => element.y.isEven).length;
+        final highestNumber = data
             .map((e) => e.y)
             .reduce((curr, next) => curr > next ? curr : next);
-        final _highestNumberAt =
-            _data.indexWhere((element) => element.y >= _highestNumber);
-        final _highestPerInitial = _highestNumber / _initialNumber;
+        final highestNumberAt =
+            data.indexWhere((element) => element.y >= highestNumber);
+        final highestPerInitial = highestNumber / initialNumber;
 
-        final _oddDistribution =
-            (_totalOddSteps / (_totalEvenSteps + _totalOddSteps)) * 100;
-        final _evenDistribution =
-            (_totalEvenSteps / (_totalEvenSteps + _totalOddSteps)) * 100;
+        final oddDistribution =
+            (totalOddSteps / (totalEvenSteps + totalOddSteps)) * 100;
+        final evenDistribution =
+            (totalEvenSteps / (totalEvenSteps + totalOddSteps)) * 100;
 
-        final _resultData = ResultDataModel(
-          initialNumber: _initialNumber,
-          data: _data,
-          totalSteps: _totalSteps,
-          totalOddNumber: _totalOddSteps,
-          totalEvenNumber: _totalEvenSteps,
-          highestNumber: _highestNumber,
-          highestNumberAt: _highestNumberAt,
-          highestPerInitial: _highestPerInitial,
-          oddDistribution: _oddDistribution,
-          evenDistribution: _evenDistribution,
+        final resultData = ResultDataModel(
+          initialNumber: initialNumber,
+          data: data,
+          totalSteps: totalSteps,
+          totalOddNumber: totalOddSteps,
+          totalEvenNumber: totalEvenSteps,
+          highestNumber: highestNumber,
+          highestNumberAt: highestNumberAt,
+          highestPerInitial: highestPerInitial,
+          oddDistribution: oddDistribution,
+          evenDistribution: evenDistribution,
         );
 
-        return _resultData;
+        return resultData;
       } else {
-        throw Exception('$_completer failure');
+        throw Exception('$completer failure');
       }
     } on Exception {
       rethrow;

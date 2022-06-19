@@ -1,11 +1,9 @@
 import 'package:collatz_conjecture/src/features/about/presentation/widgets/app_info_text.dart';
 import 'package:collatz_conjecture/src/features/about/presentation/widgets/license_button.dart';
 import 'package:collatz_conjecture/src/features/about/presentation/widgets/source_code_button.dart';
-import 'package:collatz_conjecture/src/shared/widgets/base_shimmer.dart';
 import 'package:collatz_conjecture/src/utils/assets.gen.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 
 class AboutPage extends StatelessWidget {
   static const routeName = '/about';

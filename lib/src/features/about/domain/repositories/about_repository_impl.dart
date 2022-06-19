@@ -14,9 +14,9 @@ class AboutRepositoryImpl implements AboutRepository {
   @override
   Future<Either<Failure, PackageInfo>> getAppInfo() async {
     try {
-      final _result = await _aboutUsecase.getAppInfoFromPlatform();
+      final result = await _aboutUsecase.getAppInfoFromPlatform();
 
-      return right(_result);
+      return right(result);
     } on Exception catch (e) {
       return Left(Failure(e.toString()));
     }

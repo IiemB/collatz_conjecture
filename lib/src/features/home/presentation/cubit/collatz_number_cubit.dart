@@ -17,12 +17,12 @@ class CollatzNumberCubit extends Cubit<CollatzNumberState> {
   void processNumber(int number) async {
     emit(const CollatzNumberState.loading());
 
-    final _result =
+    final result =
         await _collatzConjectureRepositories.processNumber(initial: number);
 
     await Future.delayed(const Duration(seconds: 3));
 
-    _result.fold(
+    result.fold(
       (l) => emit(CollatzNumberState.error(l)),
       (r) => emit(CollatzNumberState.succees(result: r)),
     );

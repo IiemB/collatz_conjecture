@@ -23,9 +23,17 @@ class $Url {
       'https://www.researchgate.net/publication/339998010_A_new_method_to_prove_the_Collatz_conjecture';
 }
 
+class $Other {
+  const $Other();
+
+  final collatzFormula =
+      r'f(n)={\begin{cases}{\frac {n}{2}}&{\text{if }}n\equiv 0{\pmod {2}}\\[4px]3n+1&{\text{if }}n\equiv 1{\pmod {2}}\end{cases}}';
+}
+
 class Constanst {
   Constanst._();
 
   static const string = $String();
   static const url = $Url();
+  static const other = $Other();
 }
