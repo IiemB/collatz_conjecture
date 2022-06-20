@@ -1,3 +1,9 @@
+class $SharedPrefsKey {
+  const $SharedPrefsKey();
+
+  final themeMode = 'themeMode';
+}
+
 class $String {
   const $String();
 
@@ -33,6 +39,7 @@ class $Other {
 class Constanst {
   Constanst._();
 
+  static const sharedPrefsKey = $SharedPrefsKey();
   static const string = $String();
   static const url = $Url();
   static const other = $Other();
