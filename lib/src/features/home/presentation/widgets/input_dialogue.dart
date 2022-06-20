@@ -51,10 +51,10 @@ class _InputDialogueState extends State<InputDialogue> {
             return null;
           },
           onFieldSubmitted: (value) {
-            _focusNode.unfocus();
             final isFormValid = _formKey.currentState?.validate() ?? false;
 
             if (isFormValid) {
+              _focusNode.unfocus();
               Navigator.pop<int>(context, int.tryParse(value));
             }
           },
@@ -64,10 +64,10 @@ class _InputDialogueState extends State<InputDialogue> {
       actions: [
         ElevatedButton(
           onPressed: () {
-            _focusNode.unfocus();
             final isFormValid = _formKey.currentState?.validate() ?? false;
 
             if (isFormValid) {
+              _focusNode.unfocus();
               Navigator.pop<int>(
                 context,
                 int.tryParse(_inputNumberController.text),
