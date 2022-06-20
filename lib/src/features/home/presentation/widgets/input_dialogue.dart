@@ -17,6 +17,7 @@ class _InputDialogueState extends State<InputDialogue> {
   @override
   void dispose() {
     _inputNumberController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
