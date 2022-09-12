@@ -1,8 +1,6 @@
 import 'dart:async';
 
-import 'package:collatz_conjecture/src/features/home/data/models/result_data_model.dart';
-import 'package:collatz_conjecture/src/features/home/domain/entities/chart_data.dart';
-import 'package:collatz_conjecture/src/features/home/domain/usecases/collatz_conjecture_usecase.dart';
+import 'package:collatz_conjecture/src/features/home/home.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: CollatzConjectureUsecase)

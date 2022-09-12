@@ -1,5 +1,5 @@
-import 'package:collatz_conjecture/src/configs/env.dart';
-import 'package:collatz_conjecture/src/services/injector/injector.dart';
+import 'package:collatz_conjecture/src/configs/configs.dart';
+import 'package:collatz_conjecture/src/services/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 

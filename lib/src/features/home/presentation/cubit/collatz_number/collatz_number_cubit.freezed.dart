@@ -12,35 +12,7 @@ part of 'collatz_number_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CollatzNumberStateTearOff {
-  const _$CollatzNumberStateTearOff();
-
-  CollatzNumberStateInitial initial() {
-    return const CollatzNumberStateInitial();
-  }
-
-  CollatzNumberStateLoading loading() {
-    return const CollatzNumberStateLoading();
-  }
-
-  CollatzNumberStateSuccess succees({required ResultDataModel result}) {
-    return CollatzNumberStateSuccess(
-      result: result,
-    );
-  }
-
-  CollatzNumberStateError error(Failure failure) {
-    return CollatzNumberStateError(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $CollatzNumberState = _$CollatzNumberStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CollatzNumberState {
@@ -114,23 +86,24 @@ class _$CollatzNumberStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $CollatzNumberStateInitialCopyWith<$Res> {
-  factory $CollatzNumberStateInitialCopyWith(CollatzNumberStateInitial value,
-          $Res Function(CollatzNumberStateInitial) then) =
-      _$CollatzNumberStateInitialCopyWithImpl<$Res>;
+abstract class _$$CollatzNumberStateInitialCopyWith<$Res> {
+  factory _$$CollatzNumberStateInitialCopyWith(
+          _$CollatzNumberStateInitial value,
+          $Res Function(_$CollatzNumberStateInitial) then) =
+      __$$CollatzNumberStateInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CollatzNumberStateInitialCopyWithImpl<$Res>
+class __$$CollatzNumberStateInitialCopyWithImpl<$Res>
     extends _$CollatzNumberStateCopyWithImpl<$Res>
-    implements $CollatzNumberStateInitialCopyWith<$Res> {
-  _$CollatzNumberStateInitialCopyWithImpl(CollatzNumberStateInitial _value,
-      $Res Function(CollatzNumberStateInitial) _then)
-      : super(_value, (v) => _then(v as CollatzNumberStateInitial));
+    implements _$$CollatzNumberStateInitialCopyWith<$Res> {
+  __$$CollatzNumberStateInitialCopyWithImpl(_$CollatzNumberStateInitial _value,
+      $Res Function(_$CollatzNumberStateInitial) _then)
+      : super(_value, (v) => _then(v as _$CollatzNumberStateInitial));
 
   @override
-  CollatzNumberStateInitial get _value =>
-      super._value as CollatzNumberStateInitial;
+  _$CollatzNumberStateInitial get _value =>
+      super._value as _$CollatzNumberStateInitial;
 }
 
 /// @nodoc
@@ -147,7 +120,7 @@ class _$CollatzNumberStateInitial implements CollatzNumberStateInitial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CollatzNumberStateInitial);
+            other is _$CollatzNumberStateInitial);
   }
 
   @override
@@ -233,23 +206,24 @@ abstract class CollatzNumberStateInitial implements CollatzNumberState {
 }
 
 /// @nodoc
-abstract class $CollatzNumberStateLoadingCopyWith<$Res> {
-  factory $CollatzNumberStateLoadingCopyWith(CollatzNumberStateLoading value,
-          $Res Function(CollatzNumberStateLoading) then) =
-      _$CollatzNumberStateLoadingCopyWithImpl<$Res>;
+abstract class _$$CollatzNumberStateLoadingCopyWith<$Res> {
+  factory _$$CollatzNumberStateLoadingCopyWith(
+          _$CollatzNumberStateLoading value,
+          $Res Function(_$CollatzNumberStateLoading) then) =
+      __$$CollatzNumberStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CollatzNumberStateLoadingCopyWithImpl<$Res>
+class __$$CollatzNumberStateLoadingCopyWithImpl<$Res>
     extends _$CollatzNumberStateCopyWithImpl<$Res>
-    implements $CollatzNumberStateLoadingCopyWith<$Res> {
-  _$CollatzNumberStateLoadingCopyWithImpl(CollatzNumberStateLoading _value,
-      $Res Function(CollatzNumberStateLoading) _then)
-      : super(_value, (v) => _then(v as CollatzNumberStateLoading));
+    implements _$$CollatzNumberStateLoadingCopyWith<$Res> {
+  __$$CollatzNumberStateLoadingCopyWithImpl(_$CollatzNumberStateLoading _value,
+      $Res Function(_$CollatzNumberStateLoading) _then)
+      : super(_value, (v) => _then(v as _$CollatzNumberStateLoading));
 
   @override
-  CollatzNumberStateLoading get _value =>
-      super._value as CollatzNumberStateLoading;
+  _$CollatzNumberStateLoading get _value =>
+      super._value as _$CollatzNumberStateLoading;
 }
 
 /// @nodoc
@@ -266,7 +240,7 @@ class _$CollatzNumberStateLoading implements CollatzNumberStateLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CollatzNumberStateLoading);
+            other is _$CollatzNumberStateLoading);
   }
 
   @override
@@ -352,32 +326,33 @@ abstract class CollatzNumberStateLoading implements CollatzNumberState {
 }
 
 /// @nodoc
-abstract class $CollatzNumberStateSuccessCopyWith<$Res> {
-  factory $CollatzNumberStateSuccessCopyWith(CollatzNumberStateSuccess value,
-          $Res Function(CollatzNumberStateSuccess) then) =
-      _$CollatzNumberStateSuccessCopyWithImpl<$Res>;
+abstract class _$$CollatzNumberStateSuccessCopyWith<$Res> {
+  factory _$$CollatzNumberStateSuccessCopyWith(
+          _$CollatzNumberStateSuccess value,
+          $Res Function(_$CollatzNumberStateSuccess) then) =
+      __$$CollatzNumberStateSuccessCopyWithImpl<$Res>;
   $Res call({ResultDataModel result});
 
   $ResultDataModelCopyWith<$Res> get result;
 }
 
 /// @nodoc
-class _$CollatzNumberStateSuccessCopyWithImpl<$Res>
+class __$$CollatzNumberStateSuccessCopyWithImpl<$Res>
     extends _$CollatzNumberStateCopyWithImpl<$Res>
-    implements $CollatzNumberStateSuccessCopyWith<$Res> {
-  _$CollatzNumberStateSuccessCopyWithImpl(CollatzNumberStateSuccess _value,
-      $Res Function(CollatzNumberStateSuccess) _then)
-      : super(_value, (v) => _then(v as CollatzNumberStateSuccess));
+    implements _$$CollatzNumberStateSuccessCopyWith<$Res> {
+  __$$CollatzNumberStateSuccessCopyWithImpl(_$CollatzNumberStateSuccess _value,
+      $Res Function(_$CollatzNumberStateSuccess) _then)
+      : super(_value, (v) => _then(v as _$CollatzNumberStateSuccess));
 
   @override
-  CollatzNumberStateSuccess get _value =>
-      super._value as CollatzNumberStateSuccess;
+  _$CollatzNumberStateSuccess get _value =>
+      super._value as _$CollatzNumberStateSuccess;
 
   @override
   $Res call({
     Object? result = freezed,
   }) {
-    return _then(CollatzNumberStateSuccess(
+    return _then(_$CollatzNumberStateSuccess(
       result: result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -410,7 +385,7 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CollatzNumberStateSuccess &&
+            other is _$CollatzNumberStateSuccess &&
             const DeepCollectionEquality().equals(other.result, result));
   }
 
@@ -420,9 +395,9 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
 
   @JsonKey(ignore: true)
   @override
-  $CollatzNumberStateSuccessCopyWith<CollatzNumberStateSuccess> get copyWith =>
-      _$CollatzNumberStateSuccessCopyWithImpl<CollatzNumberStateSuccess>(
-          this, _$identity);
+  _$$CollatzNumberStateSuccessCopyWith<_$CollatzNumberStateSuccess>
+      get copyWith => __$$CollatzNumberStateSuccessCopyWithImpl<
+          _$CollatzNumberStateSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -500,41 +475,42 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
 }
 
 abstract class CollatzNumberStateSuccess implements CollatzNumberState {
-  const factory CollatzNumberStateSuccess({required ResultDataModel result}) =
-      _$CollatzNumberStateSuccess;
+  const factory CollatzNumberStateSuccess(
+      {required final ResultDataModel result}) = _$CollatzNumberStateSuccess;
 
   ResultDataModel get result;
   @JsonKey(ignore: true)
-  $CollatzNumberStateSuccessCopyWith<CollatzNumberStateSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CollatzNumberStateSuccessCopyWith<_$CollatzNumberStateSuccess>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CollatzNumberStateErrorCopyWith<$Res> {
-  factory $CollatzNumberStateErrorCopyWith(CollatzNumberStateError value,
-          $Res Function(CollatzNumberStateError) then) =
-      _$CollatzNumberStateErrorCopyWithImpl<$Res>;
+abstract class _$$CollatzNumberStateErrorCopyWith<$Res> {
+  factory _$$CollatzNumberStateErrorCopyWith(_$CollatzNumberStateError value,
+          $Res Function(_$CollatzNumberStateError) then) =
+      __$$CollatzNumberStateErrorCopyWithImpl<$Res>;
   $Res call({Failure failure});
 
   $FailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class _$CollatzNumberStateErrorCopyWithImpl<$Res>
+class __$$CollatzNumberStateErrorCopyWithImpl<$Res>
     extends _$CollatzNumberStateCopyWithImpl<$Res>
-    implements $CollatzNumberStateErrorCopyWith<$Res> {
-  _$CollatzNumberStateErrorCopyWithImpl(CollatzNumberStateError _value,
-      $Res Function(CollatzNumberStateError) _then)
-      : super(_value, (v) => _then(v as CollatzNumberStateError));
+    implements _$$CollatzNumberStateErrorCopyWith<$Res> {
+  __$$CollatzNumberStateErrorCopyWithImpl(_$CollatzNumberStateError _value,
+      $Res Function(_$CollatzNumberStateError) _then)
+      : super(_value, (v) => _then(v as _$CollatzNumberStateError));
 
   @override
-  CollatzNumberStateError get _value => super._value as CollatzNumberStateError;
+  _$CollatzNumberStateError get _value =>
+      super._value as _$CollatzNumberStateError;
 
   @override
   $Res call({
     Object? failure = freezed,
   }) {
-    return _then(CollatzNumberStateError(
+    return _then(_$CollatzNumberStateError(
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -567,7 +543,7 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CollatzNumberStateError &&
+            other is _$CollatzNumberStateError &&
             const DeepCollectionEquality().equals(other.failure, failure));
   }
 
@@ -577,8 +553,8 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
 
   @JsonKey(ignore: true)
   @override
-  $CollatzNumberStateErrorCopyWith<CollatzNumberStateError> get copyWith =>
-      _$CollatzNumberStateErrorCopyWithImpl<CollatzNumberStateError>(
+  _$$CollatzNumberStateErrorCopyWith<_$CollatzNumberStateError> get copyWith =>
+      __$$CollatzNumberStateErrorCopyWithImpl<_$CollatzNumberStateError>(
           this, _$identity);
 
   @override
@@ -657,11 +633,11 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
 }
 
 abstract class CollatzNumberStateError implements CollatzNumberState {
-  const factory CollatzNumberStateError(Failure failure) =
+  const factory CollatzNumberStateError(final Failure failure) =
       _$CollatzNumberStateError;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  $CollatzNumberStateErrorCopyWith<CollatzNumberStateError> get copyWith =>
+  _$$CollatzNumberStateErrorCopyWith<_$CollatzNumberStateError> get copyWith =>
       throw _privateConstructorUsedError;
 }

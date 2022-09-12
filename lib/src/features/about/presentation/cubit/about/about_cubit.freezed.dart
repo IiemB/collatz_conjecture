@@ -12,35 +12,7 @@ part of 'about_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AboutStateTearOff {
-  const _$AboutStateTearOff();
-
-  _AboutStateInitial initial() {
-    return const _AboutStateInitial();
-  }
-
-  _AboutStateLoading loading() {
-    return const _AboutStateLoading();
-  }
-
-  _AboutStateInfoLoaded infoLoaded(PackageInfo packageInfo) {
-    return _AboutStateInfoLoaded(
-      packageInfo,
-    );
-  }
-
-  _AboutStateError error(Failure failure) {
-    return _AboutStateError(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $AboutState = _$AboutStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AboutState {
@@ -113,22 +85,22 @@ class _$AboutStateCopyWithImpl<$Res> implements $AboutStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AboutStateInitialCopyWith<$Res> {
-  factory _$AboutStateInitialCopyWith(
-          _AboutStateInitial value, $Res Function(_AboutStateInitial) then) =
-      __$AboutStateInitialCopyWithImpl<$Res>;
+abstract class _$$_AboutStateInitialCopyWith<$Res> {
+  factory _$$_AboutStateInitialCopyWith(_$_AboutStateInitial value,
+          $Res Function(_$_AboutStateInitial) then) =
+      __$$_AboutStateInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AboutStateInitialCopyWithImpl<$Res>
+class __$$_AboutStateInitialCopyWithImpl<$Res>
     extends _$AboutStateCopyWithImpl<$Res>
-    implements _$AboutStateInitialCopyWith<$Res> {
-  __$AboutStateInitialCopyWithImpl(
-      _AboutStateInitial _value, $Res Function(_AboutStateInitial) _then)
-      : super(_value, (v) => _then(v as _AboutStateInitial));
+    implements _$$_AboutStateInitialCopyWith<$Res> {
+  __$$_AboutStateInitialCopyWithImpl(
+      _$_AboutStateInitial _value, $Res Function(_$_AboutStateInitial) _then)
+      : super(_value, (v) => _then(v as _$_AboutStateInitial));
 
   @override
-  _AboutStateInitial get _value => super._value as _AboutStateInitial;
+  _$_AboutStateInitial get _value => super._value as _$_AboutStateInitial;
 }
 
 /// @nodoc
@@ -144,7 +116,7 @@ class _$_AboutStateInitial implements _AboutStateInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AboutStateInitial);
+        (other.runtimeType == runtimeType && other is _$_AboutStateInitial);
   }
 
   @override
@@ -230,22 +202,22 @@ abstract class _AboutStateInitial implements AboutState {
 }
 
 /// @nodoc
-abstract class _$AboutStateLoadingCopyWith<$Res> {
-  factory _$AboutStateLoadingCopyWith(
-          _AboutStateLoading value, $Res Function(_AboutStateLoading) then) =
-      __$AboutStateLoadingCopyWithImpl<$Res>;
+abstract class _$$_AboutStateLoadingCopyWith<$Res> {
+  factory _$$_AboutStateLoadingCopyWith(_$_AboutStateLoading value,
+          $Res Function(_$_AboutStateLoading) then) =
+      __$$_AboutStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AboutStateLoadingCopyWithImpl<$Res>
+class __$$_AboutStateLoadingCopyWithImpl<$Res>
     extends _$AboutStateCopyWithImpl<$Res>
-    implements _$AboutStateLoadingCopyWith<$Res> {
-  __$AboutStateLoadingCopyWithImpl(
-      _AboutStateLoading _value, $Res Function(_AboutStateLoading) _then)
-      : super(_value, (v) => _then(v as _AboutStateLoading));
+    implements _$$_AboutStateLoadingCopyWith<$Res> {
+  __$$_AboutStateLoadingCopyWithImpl(
+      _$_AboutStateLoading _value, $Res Function(_$_AboutStateLoading) _then)
+      : super(_value, (v) => _then(v as _$_AboutStateLoading));
 
   @override
-  _AboutStateLoading get _value => super._value as _AboutStateLoading;
+  _$_AboutStateLoading get _value => super._value as _$_AboutStateLoading;
 }
 
 /// @nodoc
@@ -261,7 +233,7 @@ class _$_AboutStateLoading implements _AboutStateLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AboutStateLoading);
+        (other.runtimeType == runtimeType && other is _$_AboutStateLoading);
   }
 
   @override
@@ -347,29 +319,29 @@ abstract class _AboutStateLoading implements AboutState {
 }
 
 /// @nodoc
-abstract class _$AboutStateInfoLoadedCopyWith<$Res> {
-  factory _$AboutStateInfoLoadedCopyWith(_AboutStateInfoLoaded value,
-          $Res Function(_AboutStateInfoLoaded) then) =
-      __$AboutStateInfoLoadedCopyWithImpl<$Res>;
+abstract class _$$_AboutStateInfoLoadedCopyWith<$Res> {
+  factory _$$_AboutStateInfoLoadedCopyWith(_$_AboutStateInfoLoaded value,
+          $Res Function(_$_AboutStateInfoLoaded) then) =
+      __$$_AboutStateInfoLoadedCopyWithImpl<$Res>;
   $Res call({PackageInfo packageInfo});
 }
 
 /// @nodoc
-class __$AboutStateInfoLoadedCopyWithImpl<$Res>
+class __$$_AboutStateInfoLoadedCopyWithImpl<$Res>
     extends _$AboutStateCopyWithImpl<$Res>
-    implements _$AboutStateInfoLoadedCopyWith<$Res> {
-  __$AboutStateInfoLoadedCopyWithImpl(
-      _AboutStateInfoLoaded _value, $Res Function(_AboutStateInfoLoaded) _then)
-      : super(_value, (v) => _then(v as _AboutStateInfoLoaded));
+    implements _$$_AboutStateInfoLoadedCopyWith<$Res> {
+  __$$_AboutStateInfoLoadedCopyWithImpl(_$_AboutStateInfoLoaded _value,
+      $Res Function(_$_AboutStateInfoLoaded) _then)
+      : super(_value, (v) => _then(v as _$_AboutStateInfoLoaded));
 
   @override
-  _AboutStateInfoLoaded get _value => super._value as _AboutStateInfoLoaded;
+  _$_AboutStateInfoLoaded get _value => super._value as _$_AboutStateInfoLoaded;
 
   @override
   $Res call({
     Object? packageInfo = freezed,
   }) {
-    return _then(_AboutStateInfoLoaded(
+    return _then(_$_AboutStateInfoLoaded(
       packageInfo == freezed
           ? _value.packageInfo
           : packageInfo // ignore: cast_nullable_to_non_nullable
@@ -395,7 +367,7 @@ class _$_AboutStateInfoLoaded implements _AboutStateInfoLoaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AboutStateInfoLoaded &&
+            other is _$_AboutStateInfoLoaded &&
             const DeepCollectionEquality()
                 .equals(other.packageInfo, packageInfo));
   }
@@ -406,8 +378,8 @@ class _$_AboutStateInfoLoaded implements _AboutStateInfoLoaded {
 
   @JsonKey(ignore: true)
   @override
-  _$AboutStateInfoLoadedCopyWith<_AboutStateInfoLoaded> get copyWith =>
-      __$AboutStateInfoLoadedCopyWithImpl<_AboutStateInfoLoaded>(
+  _$$_AboutStateInfoLoadedCopyWith<_$_AboutStateInfoLoaded> get copyWith =>
+      __$$_AboutStateInfoLoadedCopyWithImpl<_$_AboutStateInfoLoaded>(
           this, _$identity);
 
   @override
@@ -486,41 +458,41 @@ class _$_AboutStateInfoLoaded implements _AboutStateInfoLoaded {
 }
 
 abstract class _AboutStateInfoLoaded implements AboutState {
-  const factory _AboutStateInfoLoaded(PackageInfo packageInfo) =
+  const factory _AboutStateInfoLoaded(final PackageInfo packageInfo) =
       _$_AboutStateInfoLoaded;
 
   PackageInfo get packageInfo;
   @JsonKey(ignore: true)
-  _$AboutStateInfoLoadedCopyWith<_AboutStateInfoLoaded> get copyWith =>
+  _$$_AboutStateInfoLoadedCopyWith<_$_AboutStateInfoLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AboutStateErrorCopyWith<$Res> {
-  factory _$AboutStateErrorCopyWith(
-          _AboutStateError value, $Res Function(_AboutStateError) then) =
-      __$AboutStateErrorCopyWithImpl<$Res>;
+abstract class _$$_AboutStateErrorCopyWith<$Res> {
+  factory _$$_AboutStateErrorCopyWith(
+          _$_AboutStateError value, $Res Function(_$_AboutStateError) then) =
+      __$$_AboutStateErrorCopyWithImpl<$Res>;
   $Res call({Failure failure});
 
   $FailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$AboutStateErrorCopyWithImpl<$Res>
+class __$$_AboutStateErrorCopyWithImpl<$Res>
     extends _$AboutStateCopyWithImpl<$Res>
-    implements _$AboutStateErrorCopyWith<$Res> {
-  __$AboutStateErrorCopyWithImpl(
-      _AboutStateError _value, $Res Function(_AboutStateError) _then)
-      : super(_value, (v) => _then(v as _AboutStateError));
+    implements _$$_AboutStateErrorCopyWith<$Res> {
+  __$$_AboutStateErrorCopyWithImpl(
+      _$_AboutStateError _value, $Res Function(_$_AboutStateError) _then)
+      : super(_value, (v) => _then(v as _$_AboutStateError));
 
   @override
-  _AboutStateError get _value => super._value as _AboutStateError;
+  _$_AboutStateError get _value => super._value as _$_AboutStateError;
 
   @override
   $Res call({
     Object? failure = freezed,
   }) {
-    return _then(_AboutStateError(
+    return _then(_$_AboutStateError(
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -553,7 +525,7 @@ class _$_AboutStateError implements _AboutStateError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AboutStateError &&
+            other is _$_AboutStateError &&
             const DeepCollectionEquality().equals(other.failure, failure));
   }
 
@@ -563,8 +535,8 @@ class _$_AboutStateError implements _AboutStateError {
 
   @JsonKey(ignore: true)
   @override
-  _$AboutStateErrorCopyWith<_AboutStateError> get copyWith =>
-      __$AboutStateErrorCopyWithImpl<_AboutStateError>(this, _$identity);
+  _$$_AboutStateErrorCopyWith<_$_AboutStateError> get copyWith =>
+      __$$_AboutStateErrorCopyWithImpl<_$_AboutStateError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -642,10 +614,10 @@ class _$_AboutStateError implements _AboutStateError {
 }
 
 abstract class _AboutStateError implements AboutState {
-  const factory _AboutStateError(Failure failure) = _$_AboutStateError;
+  const factory _AboutStateError(final Failure failure) = _$_AboutStateError;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$AboutStateErrorCopyWith<_AboutStateError> get copyWith =>
+  _$$_AboutStateErrorCopyWith<_$_AboutStateError> get copyWith =>
       throw _privateConstructorUsedError;
 }

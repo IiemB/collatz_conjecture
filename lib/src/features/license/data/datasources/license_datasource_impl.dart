@@ -1,5 +1,4 @@
-import 'package:collatz_conjecture/src/features/license/data/datasources/license_datasource.dart';
-import 'package:collatz_conjecture/src/features/license/data/models/license_data_model/licenses_data_model.dart';
+import 'package:collatz_conjecture/src/features/license/license.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 

@@ -1,12 +1,9 @@
-import 'package:collatz_conjecture/src/features/theme/domain/entities/themes.dart';
-import 'package:collatz_conjecture/src/features/about/presentation/cubit/about_cubit.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/pages/home_page.dart';
-import 'package:collatz_conjecture/src/features/license/presentation/cubit/license_cubit.dart';
-import 'package:collatz_conjecture/src/features/theme/presentation/cubit/theme_cubit.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
-import 'package:collatz_conjecture/src/services/injector/injector.dart';
-import 'package:collatz_conjecture/src/services/routes/routes.dart';
-import 'package:collatz_conjecture/src/utils/constants.dart';
+import 'package:collatz_conjecture/src/features/about/about.dart';
+import 'package:collatz_conjecture/src/features/home/home.dart';
+import 'package:collatz_conjecture/src/features/license/license.dart';
+import 'package:collatz_conjecture/src/features/theme/theme.dart';
+import 'package:collatz_conjecture/src/services/services.dart';
+import 'package:collatz_conjecture/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -12,40 +12,7 @@ part of 'result_data_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResultDataModelTearOff {
-  const _$ResultDataModelTearOff();
-
-  _ResultDataModel call(
-      {required int initialNumber,
-      required List<ChartData> data,
-      required int totalSteps,
-      required int totalOddNumber,
-      required int totalEvenNumber,
-      required int highestNumber,
-      required int highestNumberAt,
-      required double highestPerInitial,
-      required double oddDistribution,
-      required double evenDistribution}) {
-    return _ResultDataModel(
-      initialNumber: initialNumber,
-      data: data,
-      totalSteps: totalSteps,
-      totalOddNumber: totalOddNumber,
-      totalEvenNumber: totalEvenNumber,
-      highestNumber: highestNumber,
-      highestNumberAt: highestNumberAt,
-      highestPerInitial: highestPerInitial,
-      oddDistribution: oddDistribution,
-      evenDistribution: evenDistribution,
-    );
-  }
-}
-
-/// @nodoc
-const $ResultDataModel = _$ResultDataModelTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ResultDataModel {
@@ -151,11 +118,11 @@ class _$ResultDataModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResultDataModelCopyWith<$Res>
+abstract class _$$_ResultDataModelCopyWith<$Res>
     implements $ResultDataModelCopyWith<$Res> {
-  factory _$ResultDataModelCopyWith(
-          _ResultDataModel value, $Res Function(_ResultDataModel) then) =
-      __$ResultDataModelCopyWithImpl<$Res>;
+  factory _$$_ResultDataModelCopyWith(
+          _$_ResultDataModel value, $Res Function(_$_ResultDataModel) then) =
+      __$$_ResultDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {int initialNumber,
@@ -171,15 +138,15 @@ abstract class _$ResultDataModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResultDataModelCopyWithImpl<$Res>
+class __$$_ResultDataModelCopyWithImpl<$Res>
     extends _$ResultDataModelCopyWithImpl<$Res>
-    implements _$ResultDataModelCopyWith<$Res> {
-  __$ResultDataModelCopyWithImpl(
-      _ResultDataModel _value, $Res Function(_ResultDataModel) _then)
-      : super(_value, (v) => _then(v as _ResultDataModel));
+    implements _$$_ResultDataModelCopyWith<$Res> {
+  __$$_ResultDataModelCopyWithImpl(
+      _$_ResultDataModel _value, $Res Function(_$_ResultDataModel) _then)
+      : super(_value, (v) => _then(v as _$_ResultDataModel));
 
   @override
-  _ResultDataModel get _value => super._value as _ResultDataModel;
+  _$_ResultDataModel get _value => super._value as _$_ResultDataModel;
 
   @override
   $Res call({
@@ -194,13 +161,13 @@ class __$ResultDataModelCopyWithImpl<$Res>
     Object? oddDistribution = freezed,
     Object? evenDistribution = freezed,
   }) {
-    return _then(_ResultDataModel(
+    return _then(_$_ResultDataModel(
       initialNumber: initialNumber == freezed
           ? _value.initialNumber
           : initialNumber // ignore: cast_nullable_to_non_nullable
               as int,
       data: data == freezed
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ChartData>,
       totalSteps: totalSteps == freezed
@@ -244,7 +211,7 @@ class __$ResultDataModelCopyWithImpl<$Res>
 class _$_ResultDataModel implements _ResultDataModel {
   _$_ResultDataModel(
       {required this.initialNumber,
-      required this.data,
+      required final List<ChartData> data,
       required this.totalSteps,
       required this.totalOddNumber,
       required this.totalEvenNumber,
@@ -252,12 +219,18 @@ class _$_ResultDataModel implements _ResultDataModel {
       required this.highestNumberAt,
       required this.highestPerInitial,
       required this.oddDistribution,
-      required this.evenDistribution});
+      required this.evenDistribution})
+      : _data = data;
 
   @override
   final int initialNumber;
+  final List<ChartData> _data;
   @override
-  final List<ChartData> data;
+  List<ChartData> get data {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
+
   @override
   final int totalSteps;
   @override
@@ -284,10 +257,10 @@ class _$_ResultDataModel implements _ResultDataModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResultDataModel &&
+            other is _$_ResultDataModel &&
             const DeepCollectionEquality()
                 .equals(other.initialNumber, initialNumber) &&
-            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             const DeepCollectionEquality()
                 .equals(other.totalSteps, totalSteps) &&
             const DeepCollectionEquality()
@@ -310,7 +283,7 @@ class _$_ResultDataModel implements _ResultDataModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(initialNumber),
-      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(_data),
       const DeepCollectionEquality().hash(totalSteps),
       const DeepCollectionEquality().hash(totalOddNumber),
       const DeepCollectionEquality().hash(totalEvenNumber),
@@ -322,22 +295,22 @@ class _$_ResultDataModel implements _ResultDataModel {
 
   @JsonKey(ignore: true)
   @override
-  _$ResultDataModelCopyWith<_ResultDataModel> get copyWith =>
-      __$ResultDataModelCopyWithImpl<_ResultDataModel>(this, _$identity);
+  _$$_ResultDataModelCopyWith<_$_ResultDataModel> get copyWith =>
+      __$$_ResultDataModelCopyWithImpl<_$_ResultDataModel>(this, _$identity);
 }
 
 abstract class _ResultDataModel implements ResultDataModel {
   factory _ResultDataModel(
-      {required int initialNumber,
-      required List<ChartData> data,
-      required int totalSteps,
-      required int totalOddNumber,
-      required int totalEvenNumber,
-      required int highestNumber,
-      required int highestNumberAt,
-      required double highestPerInitial,
-      required double oddDistribution,
-      required double evenDistribution}) = _$_ResultDataModel;
+      {required final int initialNumber,
+      required final List<ChartData> data,
+      required final int totalSteps,
+      required final int totalOddNumber,
+      required final int totalEvenNumber,
+      required final int highestNumber,
+      required final int highestNumberAt,
+      required final double highestPerInitial,
+      required final double oddDistribution,
+      required final double evenDistribution}) = _$_ResultDataModel;
 
   @override
   int get initialNumber;
@@ -361,6 +334,6 @@ abstract class _ResultDataModel implements ResultDataModel {
   double get evenDistribution;
   @override
   @JsonKey(ignore: true)
-  _$ResultDataModelCopyWith<_ResultDataModel> get copyWith =>
+  _$$_ResultDataModelCopyWith<_$_ResultDataModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

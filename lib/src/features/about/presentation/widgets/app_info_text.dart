@@ -1,5 +1,5 @@
-import 'package:collatz_conjecture/src/features/about/presentation/cubit/about_cubit.dart';
-import 'package:collatz_conjecture/src/shared/widgets/base_shimmer.dart';
+import 'package:collatz_conjecture/src/features/about/about.dart';
+import 'package:collatz_conjecture/src/shared/shared.dart';
 import 'package:collatz_conjecture/src/utils/constants.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';

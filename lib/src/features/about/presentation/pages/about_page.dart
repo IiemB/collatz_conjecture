@@ -41,8 +41,8 @@ class AboutPage extends StatelessWidget {
               SliverList(
                 delegate: SliverChildListDelegate(
                   [
-                    Image(
-                      image: Assets.icons.icon,
+                    Image.asset(
+                      Assets.icons.icon.path,
                       fit: BoxFit.contain,
                       height: context.width / 2,
                       filterQuality: FilterQuality.high,

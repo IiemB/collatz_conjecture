@@ -1,20 +1,10 @@
-// ignore_for_file: use_build_context_synchronously
-
-import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/widgets/about_button.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/widgets/chart_result.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/widgets/collatz_summary.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/widgets/fa_button.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/widgets/line_chart.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/widgets/number_list.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/widgets/pie_chart.dart';
-import 'package:collatz_conjecture/src/features/theme/presentation/widgets/switch_theme_button.dart';
-import 'package:collatz_conjecture/src/utils/constants.dart';
-import 'package:collatz_conjecture/src/utils/extensions.dart';
+import 'package:collatz_conjecture/src/features/home/home.dart';
+import 'package:collatz_conjecture/src/features/theme/theme.dart';
+import 'package:collatz_conjecture/src/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/';
@@ -48,8 +38,9 @@ class _HomePageState extends State<HomePage> {
                     message: 'Double tap to see reference',
                     child: GestureDetector(
                       onDoubleTap: () async {
-                        final canLaunch =
-                            await launch(Constanst.url.collatzReference);
+                        final canLaunch = await launchUrlString(
+                          Constanst.url.collatzReference,
+                        );
 
                         if (!canLaunch) {
                           context.showSnackBar(

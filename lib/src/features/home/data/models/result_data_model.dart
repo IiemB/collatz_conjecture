@@ -1,4 +1,4 @@
-import 'package:collatz_conjecture/src/features/home/domain/entities/chart_data.dart';
+import 'package:collatz_conjecture/src/features/home/home.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'result_data_model.freezed.dart';

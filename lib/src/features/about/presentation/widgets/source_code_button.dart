@@ -2,7 +2,7 @@ import 'package:collatz_conjecture/src/utils/constants.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:collatz_conjecture/src/utils/my_flutter_app_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SourceCodeButton extends StatelessWidget {
   const SourceCodeButton({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class SourceCodeButton extends StatelessWidget {
         width: context.width / 2,
         child: ElevatedButton.icon(
           onPressed: () async {
-            final canLaunch = await launch(Constanst.url.sourceCode);
+            final canLaunch = await launchUrlString(Constanst.url.sourceCode);
 
             if (!canLaunch) {
               context

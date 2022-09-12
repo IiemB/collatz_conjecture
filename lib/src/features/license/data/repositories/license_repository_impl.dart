@@ -1,8 +1,6 @@
-import 'package:collatz_conjecture/src/features/license/data/datasources/license_datasource.dart';
-import 'package:collatz_conjecture/src/features/license/data/models/license_data_model/licenses_data_model.dart';
-import 'package:collatz_conjecture/src/features/license/data/repositories/license_repository.dart';
+import 'package:collatz_conjecture/src/features/license/license.dart';
+import 'package:collatz_conjecture/src/services/services.dart';
 import 'package:dartz/dartz.dart';
-import 'package:collatz_conjecture/src/services/failure/failure.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: LicenseRepository)

@@ -1,8 +1,5 @@
-import 'package:collatz_conjecture/src/features/license/presentation/cubit/license_cubit.dart';
-import 'package:collatz_conjecture/src/features/license/presentation/widgets/licenses_list.dart';
-import 'package:collatz_conjecture/src/features/license/presentation/widgets/licenses_list_loading.dart';
-import 'package:collatz_conjecture/src/utils/constants.dart';
-import 'package:collatz_conjecture/src/utils/extensions.dart';
+import 'package:collatz_conjecture/src/features/license/license.dart';
+import 'package:collatz_conjecture/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

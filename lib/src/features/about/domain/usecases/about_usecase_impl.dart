@@ -1,4 +1,4 @@
-import 'package:collatz_conjecture/src/features/about/domain/usecases/about_usecase.dart';
+import 'package:collatz_conjecture/src/features/about/about.dart';
 import 'package:injectable/injectable.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 

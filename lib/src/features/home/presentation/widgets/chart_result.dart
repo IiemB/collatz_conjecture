@@ -1,6 +1,5 @@
-import 'package:collatz_conjecture/src/features/home/data/models/result_data_model.dart';
-import 'package:collatz_conjecture/src/features/home/presentation/cubit/collatz_number_cubit.dart';
-import 'package:collatz_conjecture/src/shared/widgets/base_shimmer.dart';
+import 'package:collatz_conjecture/src/features/home/home.dart';
+import 'package:collatz_conjecture/src/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

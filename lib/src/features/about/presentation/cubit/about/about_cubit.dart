@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:collatz_conjecture/src/features/about/domain/repositories/about_repository.dart';
-import 'package:collatz_conjecture/src/services/failure/failure.dart';
+import 'package:collatz_conjecture/src/features/about/about.dart';
+import 'package:collatz_conjecture/src/services/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:package_info_plus/package_info_plus.dart';
