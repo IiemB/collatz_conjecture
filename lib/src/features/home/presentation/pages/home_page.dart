@@ -31,7 +31,6 @@ class _HomePageState extends State<HomePage> {
               physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverAppBar(
-                  backgroundColor: context.themeData.scaffoldBackgroundColor,
                   floating: true,
                   automaticallyImplyLeading: false,
                   title: Tooltip(
@@ -40,6 +39,7 @@ class _HomePageState extends State<HomePage> {
                       onDoubleTap: () async {
                         final canLaunch = await launchUrlString(
                           Constanst.url.collatzReference,
+                          mode: LaunchMode.externalApplication,
                         );
 
                         if (!canLaunch) {
@@ -48,14 +48,7 @@ class _HomePageState extends State<HomePage> {
                           );
                         }
                       },
-                      child: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          Constanst.string.appTitle,
-                          style: context.themeData.textTheme.headline4
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                      child: Text(Constanst.string.appTitle),
                     ),
                   ),
                   actions: const [
@@ -104,11 +97,11 @@ class _HomePageState extends State<HomePage> {
     final currentTime = DateTime.now().millisecondsSinceEpoch;
 
     if ((currentTime - _lastTimeBackButtonWasTapped) < _exitTimeInMillis) {
-      context.removeCurrentSnakBar();
+      context.removeCurrentSnackBar();
       return true;
     } else {
       _lastTimeBackButtonWasTapped = DateTime.now().millisecondsSinceEpoch;
-      context.removeCurrentSnakBar();
+      context.removeCurrentSnackBar();
       context.showSnackBar(
         'Tap back again to exit',
         duration: const Duration(milliseconds: _exitTimeInMillis),

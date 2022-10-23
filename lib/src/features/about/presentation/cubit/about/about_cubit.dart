@@ -13,7 +13,7 @@ class AboutCubit extends Cubit<AboutState> {
   void getAppInfo() async {
     emit(const AboutState.loading());
 
-    await Future.delayed(const Duration(seconds: 4));
+    await Future.delayed(const Duration(seconds: 2));
 
     final result = await AboutUsecases.getAppInfo();
 

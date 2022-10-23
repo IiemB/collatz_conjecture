@@ -33,7 +33,7 @@ class FAButton extends StatelessWidget {
             orElse: () => const Icon(Icons.add),
             initial: (v) => const Icon(Icons.add),
             loading: (v) => CircularProgressIndicator(
-              color: context.themeData.colorScheme.onPrimary,
+              color: context.theme.colorScheme.onPrimary,
             ),
             succees: (v) => const Icon(Icons.loop),
           ),

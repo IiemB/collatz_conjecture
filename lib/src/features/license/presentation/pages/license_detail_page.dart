@@ -1,5 +1,5 @@
 import 'package:collatz_conjecture/src/features/license/presentation/widgets/paraghraph_card.dart';
-import 'package:collatz_conjecture/src/utils/extensions.dart';
+import 'package:collatz_conjecture/src/shared/shared.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -29,24 +29,9 @@ class LicenseDetailsPage extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             slivers: [
               SliverAppBar(
-                backgroundColor: Colors.transparent,
                 floating: true,
-                leading: IconButton(
-                  tooltip: 'Back',
-                  onPressed: () => Navigator.pop(context),
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: context.themeData.textTheme.headline4?.color,
-                  ),
-                ),
-                title: FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Text(
-                    packageName,
-                    style: context.themeData.textTheme.headline4
-                        ?.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                ),
+                leading: const CustomBackButton(),
+                title: Text(packageName),
               ),
               SliverList(
                 delegate: SliverChildListDelegate(

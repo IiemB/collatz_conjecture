@@ -103,7 +103,7 @@ class _NumberContainer extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               border: Border.all(
-                color: context.themeData.colorScheme.primary,
+                color: context.theme.colorScheme.primary,
                 width: 3,
               ),
               shape: BoxShape.circle,

@@ -12,12 +12,10 @@ class InputDialogue extends StatefulWidget {
 class _InputDialogueState extends State<InputDialogue> {
   final _inputNumberController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  final _focusNode = FocusNode();
 
   @override
   void dispose() {
     _inputNumberController.dispose();
-    _focusNode.dispose();
     super.dispose();
   }
 
@@ -31,7 +29,6 @@ class _InputDialogueState extends State<InputDialogue> {
           autofocus: true,
           keyboardType: TextInputType.number,
           controller: _inputNumberController,
-          focusNode: _focusNode,
           textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
             hintText: 'Initial number',
@@ -55,7 +52,7 @@ class _InputDialogueState extends State<InputDialogue> {
             final isFormValid = _formKey.currentState?.validate() ?? false;
 
             if (isFormValid) {
-              _focusNode.unfocus();
+              FocusScope.of(context).unfocus();
               Navigator.pop<int>(context, int.tryParse(value));
             }
           },
@@ -68,7 +65,7 @@ class _InputDialogueState extends State<InputDialogue> {
             final isFormValid = _formKey.currentState?.validate() ?? false;
 
             if (isFormValid) {
-              _focusNode.unfocus();
+              FocusScope.of(context).unfocus();
               Navigator.pop<int>(
                 context,
                 int.tryParse(_inputNumberController.text),

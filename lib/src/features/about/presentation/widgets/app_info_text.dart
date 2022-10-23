@@ -17,10 +17,10 @@ class AppInfoText extends StatelessWidget {
       child: Column(
         children: [
           BaseShimmer(
-            baseColor: context.themeData.textTheme.headline4?.color,
+            baseColor: context.theme.textTheme.headline4?.color,
             child: Text(
               Constanst.string.appTitle,
-              style: context.themeData.textTheme.headline4,
+              style: context.theme.textTheme.headline4,
             ),
           ),
           const SizedBox.square(dimension: 8),
@@ -34,15 +34,15 @@ class AppInfoText extends StatelessWidget {
                     margin: EdgeInsets.zero,
                     child: Text(
                       'Version 0.0.0',
-                      style: context.themeData.textTheme.headline6,
+                      style: context.theme.textTheme.headline6,
                     ),
                   ),
                 ),
                 infoLoaded: (v) => BaseShimmer(
-                  baseColor: context.themeData.textTheme.headline4?.color,
+                  baseColor: context.theme.textTheme.headline4?.color,
                   child: Text(
                     'Version ${v.packageInfo.version}',
-                    style: context.themeData.textTheme.headline6,
+                    style: context.theme.textTheme.headline6,
                   ),
                 ),
               );
@@ -50,7 +50,7 @@ class AppInfoText extends StatelessWidget {
           ),
           const SizedBox.square(dimension: 8),
           BaseShimmer(
-            baseColor: context.themeData.textTheme.headline4?.color,
+            baseColor: context.theme.textTheme.headline4?.color,
             child: const Text('Powered by Flutter'),
           ),
         ],

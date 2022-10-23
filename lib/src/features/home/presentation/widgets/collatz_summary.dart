@@ -19,13 +19,13 @@ class CollatzSummary extends StatelessWidget {
                   SelectableText(
                     Constanst.string.collatzSummary2,
                     textAlign: TextAlign.justify,
-                    style: context.themeData.textTheme.subtitle1,
+                    style: context.theme.textTheme.subtitle1,
                   ),
                   const SizedBox.square(dimension: 8),
                   SelectableText(
                     Constanst.string.collatzSummary2_1,
                     textAlign: TextAlign.justify,
-                    style: context.themeData.textTheme.subtitle1,
+                    style: context.theme.textTheme.subtitle1,
                   ),
                 ],
               ),
@@ -40,7 +40,7 @@ class CollatzSummary extends StatelessWidget {
                   child: Math.tex(
                     Constanst.other.collatzFormula,
                     mathStyle: MathStyle.text,
-                    textStyle: context.themeData.textTheme.titleLarge,
+                    textStyle: context.theme.textTheme.titleLarge,
                   ),
                 ),
               ),

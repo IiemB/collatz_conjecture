@@ -32,11 +32,11 @@ dependencies:
   flex_color_scheme: ^6.0.1
   flutter:
     sdk: flutter
-  # flutter_app_name: ^0.1.1
   flutter_bloc: ^8.1.1
   flutter_launcher_icons: ^0.10.0
   flutter_math_fork: ^0.6.3+1
   flutter_native_splash: ^2.2.11
+  flutter_screenutil: ^5.5.4
   freezed_annotation: ^2.2.0
   get_it: ^7.2.0
   google_fonts: ^3.0.1
@@ -176,6 +176,7 @@ flutter_native_splash:
   #info_plist_files:
   #  - 'ios/Runner/Info-Debug.plist'
   #  - 'ios/Runner/Info-Release.plist'
+
 # flutter pub run flutter_native_splash:create
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

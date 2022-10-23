@@ -21,8 +21,8 @@ class ParagraphCard extends StatelessWidget {
             Center(
               child: Text(
                 '# ${pargraphIndex + 1}',
-                style: context.themeData.textTheme.displayLarge?.copyWith(
-                  color: context.themeData.textTheme.displayLarge?.color
+                style: context.theme.textTheme.displayLarge?.copyWith(
+                  color: context.theme.textTheme.displayLarge?.color
                       ?.withOpacity(0.2),
                 ),
               ),

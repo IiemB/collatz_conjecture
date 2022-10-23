@@ -18,8 +18,8 @@ class BaseShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: baseColor ?? context.themeData.cardColor,
-      highlightColor: highlightColor ?? context.themeData.colorScheme.secondary,
+      baseColor: baseColor ?? context.theme.cardColor,
+      highlightColor: highlightColor ?? context.theme.colorScheme.secondary,
       enabled: true,
       direction: shimmerDirection,
       child: child,
