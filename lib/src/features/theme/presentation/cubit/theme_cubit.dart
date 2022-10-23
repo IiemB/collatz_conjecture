@@ -2,9 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:collatz_conjecture/src/services/dev_logger/dev_logger.dart';
 import 'package:collatz_conjecture/src/services/shared_prefs/shared_prefs.dart';
 import 'package:collatz_conjecture/src/utils/constants.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class ThemeCubit extends Cubit<int> {
   ThemeCubit()
       : super(

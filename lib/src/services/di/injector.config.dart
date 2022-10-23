@@ -25,7 +25,6 @@ import '../../features/license/data/repositories/license_repository_impl.dart'
 import '../../features/license/license.dart' as _i11;
 import '../../features/license/presentation/cubit/license/license_cubit.dart'
     as _i10;
-import '../../features/theme/presentation/cubit/theme_cubit.dart' as _i16;
 import '../dev_logger/dev_logger.dart' as _i9;
 import '../routes/app_routes.dart' as _i14;
 import '../shared_prefs/shared_preferences.dart' as _i15;
@@ -69,6 +68,5 @@ _i1.GetIt $initGetIt(
       () => _i13.LicenseRepositoryImpl(get<_i11.LicenseLocalDatasources>()));
   gh.singleton<_i14.Routes>(_i14.Routes());
   gh.singleton<_i15.SharedPrefsInterface>(_i15.SharedPrefs());
-  gh.factory<_i16.ThemeCubit>(() => _i16.ThemeCubit());
   return get;
 }

@@ -1,10 +1,9 @@
-import 'package:collatz_conjecture/src/features/about/presentation/widgets/app_info_text.dart';
-import 'package:collatz_conjecture/src/features/about/presentation/widgets/license_button.dart';
-import 'package:collatz_conjecture/src/features/about/presentation/widgets/source_code_button.dart';
+import 'package:collatz_conjecture/src/features/about/about.dart';
 import 'package:collatz_conjecture/src/shared/shared.dart';
 import 'package:collatz_conjecture/src/utils/assets.gen.dart';
 import 'package:collatz_conjecture/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AboutPage extends StatelessWidget {
   static const routeName = '/about';
@@ -12,10 +11,10 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Scrollbar(
+    return BlocProvider(
+      create: (context) => AboutCubit()..getAppInfo(),
+      child: Scaffold(
+        body: Scrollbar(
           child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [

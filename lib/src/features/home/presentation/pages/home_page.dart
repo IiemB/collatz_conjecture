@@ -20,12 +20,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => kIsWeb ? false : await _handleWillPop(context),
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4),
-          child: Scrollbar(
+    return BlocProvider(
+      create: (context) => CollatzNumberCubit(),
+      child: WillPopScope(
+        onWillPop: () async => kIsWeb ? false : await _handleWillPop(context),
+        child: Scaffold(
+          body: Scrollbar(
             radius: const Radius.circular(4),
             child: CustomScrollView(
               physics: const BouncingScrollPhysics(),
@@ -87,8 +87,8 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          floatingActionButton: const FAButton(),
         ),
-        floatingActionButton: const FAButton(),
       ),
     );
   }

@@ -21,33 +21,30 @@ class LicenseDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4),
-        child: Scrollbar(
-          radius: const Radius.circular(4),
-          child: CustomScrollView(
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverAppBar(
-                floating: true,
-                leading: const CustomBackButton(),
-                title: Text(packageName),
+      body: Scrollbar(
+        radius: const Radius.circular(4),
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            SliverAppBar(
+              floating: true,
+              leading: const CustomBackButton(),
+              title: Text(packageName),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                licenseEntries
+                    .map(
+                      (licenseEntry) => ParagraphCard(
+                        licenseEntry: licenseEntry,
+                        pargraphIndex: licenseEntries
+                            .indexWhere((element) => element == licenseEntry),
+                      ),
+                    )
+                    .toList(),
               ),
-              SliverList(
-                delegate: SliverChildListDelegate(
-                  licenseEntries
-                      .map(
-                        (licenseEntry) => ParagraphCard(
-                          licenseEntry: licenseEntry,
-                          pargraphIndex: licenseEntries
-                              .indexWhere((element) => element == licenseEntry),
-                        ),
-                      )
-                      .toList(),
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

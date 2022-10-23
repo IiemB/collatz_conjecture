@@ -10,10 +10,10 @@ class AppLicensesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4),
-        child: Scrollbar(
+    return BlocProvider(
+      create: (context) => LicenseCubit()..getLicense(),
+      child: Scaffold(
+        body: Scrollbar(
           radius: const Radius.circular(4),
           child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
@@ -24,7 +24,6 @@ class AppLicensesPage extends StatelessWidget {
                 title: Text(Constanst.string.licenseAppBarTitle),
               ),
               BlocConsumer<LicenseCubit, LicenseState>(
-                bloc: BlocProvider.of<LicenseCubit>(context)..getLicense(),
                 listener: (context, state) {
                   state.maybeMap(
                     orElse: () {},

@@ -14,7 +14,10 @@ class SourceCodeButton extends StatelessWidget {
         width: context.width / 2,
         child: ElevatedButton.icon(
           onPressed: () async {
-            final canLaunch = await launchUrlString(Constanst.url.sourceCode);
+            final canLaunch = await launchUrlString(
+              Constanst.url.sourceCode,
+              mode: LaunchMode.externalApplication,
+            );
 
             if (!canLaunch) {
               context

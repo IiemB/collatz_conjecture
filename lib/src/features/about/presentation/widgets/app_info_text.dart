@@ -25,7 +25,6 @@ class AppInfoText extends StatelessWidget {
           ),
           const SizedBox.square(dimension: 8),
           BlocBuilder<AboutCubit, AboutState>(
-            bloc: BlocProvider.of<AboutCubit>(context)..getAppInfo(),
             builder: (context, state) {
               return state.maybeMap(
                 orElse: () => const SizedBox(),
