@@ -29,35 +29,35 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.5
   dartz: ^0.10.1
-  flex_color_scheme: ^6.0.0
+  flex_color_scheme: ^6.0.1
   flutter:
     sdk: flutter
   # flutter_app_name: ^0.1.1
   flutter_bloc: ^8.1.1
   flutter_launcher_icons: ^0.10.0
   flutter_math_fork: ^0.6.3+1
-  flutter_native_splash: ^2.2.9
-  freezed_annotation: ^2.1.0
+  flutter_native_splash: ^2.2.11
+  freezed_annotation: ^2.2.0
   get_it: ^7.2.0
   google_fonts: ^3.0.1
   injectable: ^1.5.3
   intl: ^0.17.0
   logger: ^1.1.0
-  package_info_plus: ^1.4.3+1
+  package_info_plus: ^3.0.1
   shared_preferences: ^2.0.15
   shimmer: ^2.0.0
-  syncfusion_flutter_charts: ^20.2.48
-  syncfusion_flutter_core: ^20.2.48
-  syncfusion_flutter_sliders: ^20.2.48
-  url_launcher: ^6.1.5
+  syncfusion_flutter_charts: ^20.2.50
+  syncfusion_flutter_core: ^20.2.50
+  syncfusion_flutter_sliders: ^20.2.50
+  url_launcher: ^6.1.6
 
 dev_dependencies:
-  build_runner: ^2.2.0
-  flutter_gen_runner: ^4.3.0
+  build_runner: ^2.3.2
+  flutter_gen_runner: ^5.0.3
   flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
-  freezed: ^2.1.0+1
+  freezed: ^2.2.0
   injectable_generator: ^1.5.4
 
 flutter_gen:
@@ -66,7 +66,8 @@ flutter_gen:
 
   assets:
     enabled: true
-    package_parameter_enabled: false
+    outputs:
+      package_parameter_enabled: false
 
 flutter:
   uses-material-design: true
@@ -175,7 +176,6 @@ flutter_native_splash:
   #info_plist_files:
   #  - 'ios/Runner/Info-Debug.plist'
   #  - 'ios/Runner/Info-Release.plist'
-
 # flutter pub run flutter_native_splash:create
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

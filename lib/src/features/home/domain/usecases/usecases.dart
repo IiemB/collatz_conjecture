@@ -1,2 +1,1 @@
-export 'collatz_conjecture_usecase.dart';
-export 'collatz_conjecture_usecase_impl.dart';
+export 'callatz_conjecture_usecases.dart';

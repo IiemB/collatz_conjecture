@@ -6,14 +6,14 @@ import 'package:dartz/dartz.dart';
 
 @LazySingleton(as: AboutRepository)
 class AboutRepositoryImpl implements AboutRepository {
-  final AboutUsecase _aboutUsecase;
+  final AboutLocalDatasources _aboutLocalDatasources;
 
-  AboutRepositoryImpl(this._aboutUsecase);
+  AboutRepositoryImpl(this._aboutLocalDatasources);
 
   @override
   Future<Either<Failure, PackageInfo>> getAppInfo() async {
     try {
-      final result = await _aboutUsecase.getAppInfoFromPlatform();
+      final result = await _aboutLocalDatasources.getAppInfoFromPlatform();
 
       return right(result);
     } on Exception catch (e) {

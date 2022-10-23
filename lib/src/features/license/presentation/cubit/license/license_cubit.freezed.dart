@@ -26,10 +26,10 @@ mixin _$LicenseState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(LicensesDataModel licensesData)? loaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LicensesDataModel licensesData)? loaded,
+    TResult? Function(Failure failure)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$LicenseState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LicenseStateInitial value)? initial,
-    TResult Function(_LicenseStateLoading value)? loading,
-    TResult Function(_LicenseStateLoaded value)? loaded,
-    TResult Function(_LicenseStateError value)? error,
+    TResult? Function(_LicenseStateInitial value)? initial,
+    TResult? Function(_LicenseStateLoading value)? loading,
+    TResult? Function(_LicenseStateLoaded value)? loaded,
+    TResult? Function(_LicenseStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,16 +72,18 @@ mixin _$LicenseState {
 abstract class $LicenseStateCopyWith<$Res> {
   factory $LicenseStateCopyWith(
           LicenseState value, $Res Function(LicenseState) then) =
-      _$LicenseStateCopyWithImpl<$Res>;
+      _$LicenseStateCopyWithImpl<$Res, LicenseState>;
 }
 
 /// @nodoc
-class _$LicenseStateCopyWithImpl<$Res> implements $LicenseStateCopyWith<$Res> {
+class _$LicenseStateCopyWithImpl<$Res, $Val extends LicenseState>
+    implements $LicenseStateCopyWith<$Res> {
   _$LicenseStateCopyWithImpl(this._value, this._then);
 
-  final LicenseState _value;
   // ignore: unused_field
-  final $Res Function(LicenseState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -93,14 +95,11 @@ abstract class _$$_LicenseStateInitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LicenseStateInitialCopyWithImpl<$Res>
-    extends _$LicenseStateCopyWithImpl<$Res>
+    extends _$LicenseStateCopyWithImpl<$Res, _$_LicenseStateInitial>
     implements _$$_LicenseStateInitialCopyWith<$Res> {
   __$$_LicenseStateInitialCopyWithImpl(_$_LicenseStateInitial _value,
       $Res Function(_$_LicenseStateInitial) _then)
-      : super(_value, (v) => _then(v as _$_LicenseStateInitial));
-
-  @override
-  _$_LicenseStateInitial get _value => super._value as _$_LicenseStateInitial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -136,10 +135,10 @@ class _$_LicenseStateInitial implements _LicenseStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(LicensesDataModel licensesData)? loaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LicensesDataModel licensesData)? loaded,
+    TResult? Function(Failure failure)? error,
   }) {
     return initial?.call();
   }
@@ -173,10 +172,10 @@ class _$_LicenseStateInitial implements _LicenseStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LicenseStateInitial value)? initial,
-    TResult Function(_LicenseStateLoading value)? loading,
-    TResult Function(_LicenseStateLoaded value)? loaded,
-    TResult Function(_LicenseStateError value)? error,
+    TResult? Function(_LicenseStateInitial value)? initial,
+    TResult? Function(_LicenseStateLoading value)? loading,
+    TResult? Function(_LicenseStateLoaded value)? loaded,
+    TResult? Function(_LicenseStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -210,14 +209,11 @@ abstract class _$$_LicenseStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LicenseStateLoadingCopyWithImpl<$Res>
-    extends _$LicenseStateCopyWithImpl<$Res>
+    extends _$LicenseStateCopyWithImpl<$Res, _$_LicenseStateLoading>
     implements _$$_LicenseStateLoadingCopyWith<$Res> {
   __$$_LicenseStateLoadingCopyWithImpl(_$_LicenseStateLoading _value,
       $Res Function(_$_LicenseStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_LicenseStateLoading));
-
-  @override
-  _$_LicenseStateLoading get _value => super._value as _$_LicenseStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -253,10 +249,10 @@ class _$_LicenseStateLoading implements _LicenseStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(LicensesDataModel licensesData)? loaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LicensesDataModel licensesData)? loaded,
+    TResult? Function(Failure failure)? error,
   }) {
     return loading?.call();
   }
@@ -290,10 +286,10 @@ class _$_LicenseStateLoading implements _LicenseStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LicenseStateInitial value)? initial,
-    TResult Function(_LicenseStateLoading value)? loading,
-    TResult Function(_LicenseStateLoaded value)? loaded,
-    TResult Function(_LicenseStateError value)? error,
+    TResult? Function(_LicenseStateInitial value)? initial,
+    TResult? Function(_LicenseStateLoading value)? loading,
+    TResult? Function(_LicenseStateLoaded value)? loaded,
+    TResult? Function(_LicenseStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -323,26 +319,25 @@ abstract class _$$_LicenseStateLoadedCopyWith<$Res> {
   factory _$$_LicenseStateLoadedCopyWith(_$_LicenseStateLoaded value,
           $Res Function(_$_LicenseStateLoaded) then) =
       __$$_LicenseStateLoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({LicensesDataModel licensesData});
 }
 
 /// @nodoc
 class __$$_LicenseStateLoadedCopyWithImpl<$Res>
-    extends _$LicenseStateCopyWithImpl<$Res>
+    extends _$LicenseStateCopyWithImpl<$Res, _$_LicenseStateLoaded>
     implements _$$_LicenseStateLoadedCopyWith<$Res> {
   __$$_LicenseStateLoadedCopyWithImpl(
       _$_LicenseStateLoaded _value, $Res Function(_$_LicenseStateLoaded) _then)
-      : super(_value, (v) => _then(v as _$_LicenseStateLoaded));
+      : super(_value, _then);
 
-  @override
-  _$_LicenseStateLoaded get _value => super._value as _$_LicenseStateLoaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? licensesData = freezed,
+    Object? licensesData = null,
   }) {
     return _then(_$_LicenseStateLoaded(
-      licensesData == freezed
+      null == licensesData
           ? _value.licensesData
           : licensesData // ignore: cast_nullable_to_non_nullable
               as LicensesDataModel,
@@ -368,16 +363,16 @@ class _$_LicenseStateLoaded implements _LicenseStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LicenseStateLoaded &&
-            const DeepCollectionEquality()
-                .equals(other.licensesData, licensesData));
+            (identical(other.licensesData, licensesData) ||
+                other.licensesData == licensesData));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(licensesData));
+  int get hashCode => Object.hash(runtimeType, licensesData);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LicenseStateLoadedCopyWith<_$_LicenseStateLoaded> get copyWith =>
       __$$_LicenseStateLoadedCopyWithImpl<_$_LicenseStateLoaded>(
           this, _$identity);
@@ -396,10 +391,10 @@ class _$_LicenseStateLoaded implements _LicenseStateLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(LicensesDataModel licensesData)? loaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LicensesDataModel licensesData)? loaded,
+    TResult? Function(Failure failure)? error,
   }) {
     return loaded?.call(licensesData);
   }
@@ -433,10 +428,10 @@ class _$_LicenseStateLoaded implements _LicenseStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LicenseStateInitial value)? initial,
-    TResult Function(_LicenseStateLoading value)? loading,
-    TResult Function(_LicenseStateLoaded value)? loaded,
-    TResult Function(_LicenseStateError value)? error,
+    TResult? Function(_LicenseStateInitial value)? initial,
+    TResult? Function(_LicenseStateLoading value)? loading,
+    TResult? Function(_LicenseStateLoaded value)? loaded,
+    TResult? Function(_LicenseStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -472,6 +467,7 @@ abstract class _$$_LicenseStateErrorCopyWith<$Res> {
   factory _$$_LicenseStateErrorCopyWith(_$_LicenseStateError value,
           $Res Function(_$_LicenseStateError) then) =
       __$$_LicenseStateErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({Failure failure});
 
   $FailureCopyWith<$Res> get failure;
@@ -479,21 +475,19 @@ abstract class _$$_LicenseStateErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LicenseStateErrorCopyWithImpl<$Res>
-    extends _$LicenseStateCopyWithImpl<$Res>
+    extends _$LicenseStateCopyWithImpl<$Res, _$_LicenseStateError>
     implements _$$_LicenseStateErrorCopyWith<$Res> {
   __$$_LicenseStateErrorCopyWithImpl(
       _$_LicenseStateError _value, $Res Function(_$_LicenseStateError) _then)
-      : super(_value, (v) => _then(v as _$_LicenseStateError));
+      : super(_value, _then);
 
-  @override
-  _$_LicenseStateError get _value => super._value as _$_LicenseStateError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
     return _then(_$_LicenseStateError(
-      failure == freezed
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
@@ -501,6 +495,7 @@ class __$$_LicenseStateErrorCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $FailureCopyWith<$Res> get failure {
     return $FailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -526,15 +521,15 @@ class _$_LicenseStateError implements _LicenseStateError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LicenseStateError &&
-            const DeepCollectionEquality().equals(other.failure, failure));
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LicenseStateErrorCopyWith<_$_LicenseStateError> get copyWith =>
       __$$_LicenseStateErrorCopyWithImpl<_$_LicenseStateError>(
           this, _$identity);
@@ -553,10 +548,10 @@ class _$_LicenseStateError implements _LicenseStateError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(LicensesDataModel licensesData)? loaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LicensesDataModel licensesData)? loaded,
+    TResult? Function(Failure failure)? error,
   }) {
     return error?.call(failure);
   }
@@ -590,10 +585,10 @@ class _$_LicenseStateError implements _LicenseStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LicenseStateInitial value)? initial,
-    TResult Function(_LicenseStateLoading value)? loading,
-    TResult Function(_LicenseStateLoaded value)? loaded,
-    TResult Function(_LicenseStateError value)? error,
+    TResult? Function(_LicenseStateInitial value)? initial,
+    TResult? Function(_LicenseStateLoading value)? loading,
+    TResult? Function(_LicenseStateLoaded value)? loaded,
+    TResult? Function(_LicenseStateError value)? error,
   }) {
     return error?.call(this);
   }

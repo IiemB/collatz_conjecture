@@ -26,10 +26,10 @@ mixin _$AboutState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(PackageInfo packageInfo)? infoLoaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(PackageInfo packageInfo)? infoLoaded,
+    TResult? Function(Failure failure)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$AboutState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AboutStateInitial value)? initial,
-    TResult Function(_AboutStateLoading value)? loading,
-    TResult Function(_AboutStateInfoLoaded value)? infoLoaded,
-    TResult Function(_AboutStateError value)? error,
+    TResult? Function(_AboutStateInitial value)? initial,
+    TResult? Function(_AboutStateLoading value)? loading,
+    TResult? Function(_AboutStateInfoLoaded value)? infoLoaded,
+    TResult? Function(_AboutStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,16 +72,18 @@ mixin _$AboutState {
 abstract class $AboutStateCopyWith<$Res> {
   factory $AboutStateCopyWith(
           AboutState value, $Res Function(AboutState) then) =
-      _$AboutStateCopyWithImpl<$Res>;
+      _$AboutStateCopyWithImpl<$Res, AboutState>;
 }
 
 /// @nodoc
-class _$AboutStateCopyWithImpl<$Res> implements $AboutStateCopyWith<$Res> {
+class _$AboutStateCopyWithImpl<$Res, $Val extends AboutState>
+    implements $AboutStateCopyWith<$Res> {
   _$AboutStateCopyWithImpl(this._value, this._then);
 
-  final AboutState _value;
   // ignore: unused_field
-  final $Res Function(AboutState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -93,14 +95,11 @@ abstract class _$$_AboutStateInitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AboutStateInitialCopyWithImpl<$Res>
-    extends _$AboutStateCopyWithImpl<$Res>
+    extends _$AboutStateCopyWithImpl<$Res, _$_AboutStateInitial>
     implements _$$_AboutStateInitialCopyWith<$Res> {
   __$$_AboutStateInitialCopyWithImpl(
       _$_AboutStateInitial _value, $Res Function(_$_AboutStateInitial) _then)
-      : super(_value, (v) => _then(v as _$_AboutStateInitial));
-
-  @override
-  _$_AboutStateInitial get _value => super._value as _$_AboutStateInitial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -136,10 +135,10 @@ class _$_AboutStateInitial implements _AboutStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(PackageInfo packageInfo)? infoLoaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(PackageInfo packageInfo)? infoLoaded,
+    TResult? Function(Failure failure)? error,
   }) {
     return initial?.call();
   }
@@ -173,10 +172,10 @@ class _$_AboutStateInitial implements _AboutStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AboutStateInitial value)? initial,
-    TResult Function(_AboutStateLoading value)? loading,
-    TResult Function(_AboutStateInfoLoaded value)? infoLoaded,
-    TResult Function(_AboutStateError value)? error,
+    TResult? Function(_AboutStateInitial value)? initial,
+    TResult? Function(_AboutStateLoading value)? loading,
+    TResult? Function(_AboutStateInfoLoaded value)? infoLoaded,
+    TResult? Function(_AboutStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -210,14 +209,11 @@ abstract class _$$_AboutStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AboutStateLoadingCopyWithImpl<$Res>
-    extends _$AboutStateCopyWithImpl<$Res>
+    extends _$AboutStateCopyWithImpl<$Res, _$_AboutStateLoading>
     implements _$$_AboutStateLoadingCopyWith<$Res> {
   __$$_AboutStateLoadingCopyWithImpl(
       _$_AboutStateLoading _value, $Res Function(_$_AboutStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_AboutStateLoading));
-
-  @override
-  _$_AboutStateLoading get _value => super._value as _$_AboutStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -253,10 +249,10 @@ class _$_AboutStateLoading implements _AboutStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(PackageInfo packageInfo)? infoLoaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(PackageInfo packageInfo)? infoLoaded,
+    TResult? Function(Failure failure)? error,
   }) {
     return loading?.call();
   }
@@ -290,10 +286,10 @@ class _$_AboutStateLoading implements _AboutStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AboutStateInitial value)? initial,
-    TResult Function(_AboutStateLoading value)? loading,
-    TResult Function(_AboutStateInfoLoaded value)? infoLoaded,
-    TResult Function(_AboutStateError value)? error,
+    TResult? Function(_AboutStateInitial value)? initial,
+    TResult? Function(_AboutStateLoading value)? loading,
+    TResult? Function(_AboutStateInfoLoaded value)? infoLoaded,
+    TResult? Function(_AboutStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -323,26 +319,25 @@ abstract class _$$_AboutStateInfoLoadedCopyWith<$Res> {
   factory _$$_AboutStateInfoLoadedCopyWith(_$_AboutStateInfoLoaded value,
           $Res Function(_$_AboutStateInfoLoaded) then) =
       __$$_AboutStateInfoLoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({PackageInfo packageInfo});
 }
 
 /// @nodoc
 class __$$_AboutStateInfoLoadedCopyWithImpl<$Res>
-    extends _$AboutStateCopyWithImpl<$Res>
+    extends _$AboutStateCopyWithImpl<$Res, _$_AboutStateInfoLoaded>
     implements _$$_AboutStateInfoLoadedCopyWith<$Res> {
   __$$_AboutStateInfoLoadedCopyWithImpl(_$_AboutStateInfoLoaded _value,
       $Res Function(_$_AboutStateInfoLoaded) _then)
-      : super(_value, (v) => _then(v as _$_AboutStateInfoLoaded));
+      : super(_value, _then);
 
-  @override
-  _$_AboutStateInfoLoaded get _value => super._value as _$_AboutStateInfoLoaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? packageInfo = freezed,
+    Object? packageInfo = null,
   }) {
     return _then(_$_AboutStateInfoLoaded(
-      packageInfo == freezed
+      null == packageInfo
           ? _value.packageInfo
           : packageInfo // ignore: cast_nullable_to_non_nullable
               as PackageInfo,
@@ -368,16 +363,16 @@ class _$_AboutStateInfoLoaded implements _AboutStateInfoLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AboutStateInfoLoaded &&
-            const DeepCollectionEquality()
-                .equals(other.packageInfo, packageInfo));
+            (identical(other.packageInfo, packageInfo) ||
+                other.packageInfo == packageInfo));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(packageInfo));
+  int get hashCode => Object.hash(runtimeType, packageInfo);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AboutStateInfoLoadedCopyWith<_$_AboutStateInfoLoaded> get copyWith =>
       __$$_AboutStateInfoLoadedCopyWithImpl<_$_AboutStateInfoLoaded>(
           this, _$identity);
@@ -396,10 +391,10 @@ class _$_AboutStateInfoLoaded implements _AboutStateInfoLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(PackageInfo packageInfo)? infoLoaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(PackageInfo packageInfo)? infoLoaded,
+    TResult? Function(Failure failure)? error,
   }) {
     return infoLoaded?.call(packageInfo);
   }
@@ -433,10 +428,10 @@ class _$_AboutStateInfoLoaded implements _AboutStateInfoLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AboutStateInitial value)? initial,
-    TResult Function(_AboutStateLoading value)? loading,
-    TResult Function(_AboutStateInfoLoaded value)? infoLoaded,
-    TResult Function(_AboutStateError value)? error,
+    TResult? Function(_AboutStateInitial value)? initial,
+    TResult? Function(_AboutStateLoading value)? loading,
+    TResult? Function(_AboutStateInfoLoaded value)? infoLoaded,
+    TResult? Function(_AboutStateError value)? error,
   }) {
     return infoLoaded?.call(this);
   }
@@ -472,6 +467,7 @@ abstract class _$$_AboutStateErrorCopyWith<$Res> {
   factory _$$_AboutStateErrorCopyWith(
           _$_AboutStateError value, $Res Function(_$_AboutStateError) then) =
       __$$_AboutStateErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({Failure failure});
 
   $FailureCopyWith<$Res> get failure;
@@ -479,21 +475,19 @@ abstract class _$$_AboutStateErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AboutStateErrorCopyWithImpl<$Res>
-    extends _$AboutStateCopyWithImpl<$Res>
+    extends _$AboutStateCopyWithImpl<$Res, _$_AboutStateError>
     implements _$$_AboutStateErrorCopyWith<$Res> {
   __$$_AboutStateErrorCopyWithImpl(
       _$_AboutStateError _value, $Res Function(_$_AboutStateError) _then)
-      : super(_value, (v) => _then(v as _$_AboutStateError));
+      : super(_value, _then);
 
-  @override
-  _$_AboutStateError get _value => super._value as _$_AboutStateError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
     return _then(_$_AboutStateError(
-      failure == freezed
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
@@ -501,6 +495,7 @@ class __$$_AboutStateErrorCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $FailureCopyWith<$Res> get failure {
     return $FailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -526,15 +521,15 @@ class _$_AboutStateError implements _AboutStateError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AboutStateError &&
-            const DeepCollectionEquality().equals(other.failure, failure));
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AboutStateErrorCopyWith<_$_AboutStateError> get copyWith =>
       __$$_AboutStateErrorCopyWithImpl<_$_AboutStateError>(this, _$identity);
 
@@ -552,10 +547,10 @@ class _$_AboutStateError implements _AboutStateError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(PackageInfo packageInfo)? infoLoaded,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(PackageInfo packageInfo)? infoLoaded,
+    TResult? Function(Failure failure)? error,
   }) {
     return error?.call(failure);
   }
@@ -589,10 +584,10 @@ class _$_AboutStateError implements _AboutStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AboutStateInitial value)? initial,
-    TResult Function(_AboutStateLoading value)? loading,
-    TResult Function(_AboutStateInfoLoaded value)? infoLoaded,
-    TResult Function(_AboutStateError value)? error,
+    TResult? Function(_AboutStateInitial value)? initial,
+    TResult? Function(_AboutStateLoading value)? loading,
+    TResult? Function(_AboutStateInfoLoaded value)? infoLoaded,
+    TResult? Function(_AboutStateError value)? error,
   }) {
     return error?.call(this);
   }

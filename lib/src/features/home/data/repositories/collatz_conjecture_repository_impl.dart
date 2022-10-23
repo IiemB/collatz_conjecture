@@ -6,20 +6,21 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: CollatzConjectureRepository)
 class CollatzConjectureRepositoryImpl implements CollatzConjectureRepository {
-  final CollatzConjectureUsecase _collatzConjectureUsecase;
+  final CollatzConjectureLocalDataSources _collatzConjectureLocalDatasources;
 
-  CollatzConjectureRepositoryImpl(this._collatzConjectureUsecase);
+  CollatzConjectureRepositoryImpl(this._collatzConjectureLocalDatasources);
 
   @override
   Future<Either<Failure, ResultDataModel>> processNumber({
     required int initial,
   }) async {
     try {
-      final resultData =
-          await _collatzConjectureUsecase.procesNumber(initial: initial);
+      final resultData = await _collatzConjectureLocalDatasources.procesNumber(
+        initial: initial,
+      );
 
       return right(resultData);
-    } on Exception catch (e) {
+    } catch (e) {
       return left(Failure(e.toString()));
     }
   }

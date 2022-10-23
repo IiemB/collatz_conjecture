@@ -5,13 +5,13 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: LicenseRepository)
 class LicenseRepositoryImpl implements LicenseRepository {
-  final LicenseDataSource _licenseDataSource;
+  final LicenseLocalDatasources _licenseLocalDatasources;
 
-  LicenseRepositoryImpl(this._licenseDataSource);
+  LicenseRepositoryImpl(this._licenseLocalDatasources);
   @override
   Future<Either<Failure, LicensesDataModel>> getLicensesData() async {
     try {
-      final result = await _licenseDataSource.getAppLicenses();
+      final result = await _licenseLocalDatasources.getAppLicenses();
       return right(result);
     } on Exception catch (e) {
       return left(Failure(e.toString()));

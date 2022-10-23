@@ -1,2 +1,2 @@
-export 'license_datasource.dart';
-export 'license_datasource_impl.dart';
+export 'license_local_datasources.dart';
+export 'license_local_datasources_impl.dart';

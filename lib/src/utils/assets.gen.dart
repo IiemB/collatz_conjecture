@@ -5,7 +5,7 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import
+// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal
 
 import 'package:flutter/widgets.dart';
 
@@ -17,6 +17,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/icon.png
   AssetGenImage get icon => const AssetGenImage('assets/icons/icon.png');
+
+  /// List of all assets
+  List<dynamic> get values => [gitignore, icon];
 }
 
 class $AssetsImagesGen {
@@ -25,6 +28,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/collatz_formula.png
   AssetGenImage get collatzFormula =>
       const AssetGenImage('assets/images/collatz_formula.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [collatzFormula];
 }
 
 class Assets {
@@ -91,6 +97,8 @@ class AssetGenImage {
       cacheHeight: cacheHeight,
     );
   }
+
+  ImageProvider provider() => AssetImage(_assetName);
 
   String get path => _assetName;
 

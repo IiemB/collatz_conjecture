@@ -36,7 +36,8 @@ mixin _$ResultDataModel {
 abstract class $ResultDataModelCopyWith<$Res> {
   factory $ResultDataModelCopyWith(
           ResultDataModel value, $Res Function(ResultDataModel) then) =
-      _$ResultDataModelCopyWithImpl<$Res>;
+      _$ResultDataModelCopyWithImpl<$Res, ResultDataModel>;
+  @useResult
   $Res call(
       {int initialNumber,
       List<ChartData> data,
@@ -51,69 +52,71 @@ abstract class $ResultDataModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ResultDataModelCopyWithImpl<$Res>
+class _$ResultDataModelCopyWithImpl<$Res, $Val extends ResultDataModel>
     implements $ResultDataModelCopyWith<$Res> {
   _$ResultDataModelCopyWithImpl(this._value, this._then);
 
-  final ResultDataModel _value;
   // ignore: unused_field
-  final $Res Function(ResultDataModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? initialNumber = freezed,
-    Object? data = freezed,
-    Object? totalSteps = freezed,
-    Object? totalOddNumber = freezed,
-    Object? totalEvenNumber = freezed,
-    Object? highestNumber = freezed,
-    Object? highestNumberAt = freezed,
-    Object? highestPerInitial = freezed,
-    Object? oddDistribution = freezed,
-    Object? evenDistribution = freezed,
+    Object? initialNumber = null,
+    Object? data = null,
+    Object? totalSteps = null,
+    Object? totalOddNumber = null,
+    Object? totalEvenNumber = null,
+    Object? highestNumber = null,
+    Object? highestNumberAt = null,
+    Object? highestPerInitial = null,
+    Object? oddDistribution = null,
+    Object? evenDistribution = null,
   }) {
     return _then(_value.copyWith(
-      initialNumber: initialNumber == freezed
+      initialNumber: null == initialNumber
           ? _value.initialNumber
           : initialNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ChartData>,
-      totalSteps: totalSteps == freezed
+      totalSteps: null == totalSteps
           ? _value.totalSteps
           : totalSteps // ignore: cast_nullable_to_non_nullable
               as int,
-      totalOddNumber: totalOddNumber == freezed
+      totalOddNumber: null == totalOddNumber
           ? _value.totalOddNumber
           : totalOddNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      totalEvenNumber: totalEvenNumber == freezed
+      totalEvenNumber: null == totalEvenNumber
           ? _value.totalEvenNumber
           : totalEvenNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      highestNumber: highestNumber == freezed
+      highestNumber: null == highestNumber
           ? _value.highestNumber
           : highestNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      highestNumberAt: highestNumberAt == freezed
+      highestNumberAt: null == highestNumberAt
           ? _value.highestNumberAt
           : highestNumberAt // ignore: cast_nullable_to_non_nullable
               as int,
-      highestPerInitial: highestPerInitial == freezed
+      highestPerInitial: null == highestPerInitial
           ? _value.highestPerInitial
           : highestPerInitial // ignore: cast_nullable_to_non_nullable
               as double,
-      oddDistribution: oddDistribution == freezed
+      oddDistribution: null == oddDistribution
           ? _value.oddDistribution
           : oddDistribution // ignore: cast_nullable_to_non_nullable
               as double,
-      evenDistribution: evenDistribution == freezed
+      evenDistribution: null == evenDistribution
           ? _value.evenDistribution
           : evenDistribution // ignore: cast_nullable_to_non_nullable
               as double,
-    ));
+    ) as $Val);
   }
 }
 
@@ -124,6 +127,7 @@ abstract class _$$_ResultDataModelCopyWith<$Res>
           _$_ResultDataModel value, $Res Function(_$_ResultDataModel) then) =
       __$$_ResultDataModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int initialNumber,
       List<ChartData> data,
@@ -139,66 +143,64 @@ abstract class _$$_ResultDataModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_ResultDataModelCopyWithImpl<$Res>
-    extends _$ResultDataModelCopyWithImpl<$Res>
+    extends _$ResultDataModelCopyWithImpl<$Res, _$_ResultDataModel>
     implements _$$_ResultDataModelCopyWith<$Res> {
   __$$_ResultDataModelCopyWithImpl(
       _$_ResultDataModel _value, $Res Function(_$_ResultDataModel) _then)
-      : super(_value, (v) => _then(v as _$_ResultDataModel));
+      : super(_value, _then);
 
-  @override
-  _$_ResultDataModel get _value => super._value as _$_ResultDataModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? initialNumber = freezed,
-    Object? data = freezed,
-    Object? totalSteps = freezed,
-    Object? totalOddNumber = freezed,
-    Object? totalEvenNumber = freezed,
-    Object? highestNumber = freezed,
-    Object? highestNumberAt = freezed,
-    Object? highestPerInitial = freezed,
-    Object? oddDistribution = freezed,
-    Object? evenDistribution = freezed,
+    Object? initialNumber = null,
+    Object? data = null,
+    Object? totalSteps = null,
+    Object? totalOddNumber = null,
+    Object? totalEvenNumber = null,
+    Object? highestNumber = null,
+    Object? highestNumberAt = null,
+    Object? highestPerInitial = null,
+    Object? oddDistribution = null,
+    Object? evenDistribution = null,
   }) {
     return _then(_$_ResultDataModel(
-      initialNumber: initialNumber == freezed
+      initialNumber: null == initialNumber
           ? _value.initialNumber
           : initialNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      data: data == freezed
+      data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ChartData>,
-      totalSteps: totalSteps == freezed
+      totalSteps: null == totalSteps
           ? _value.totalSteps
           : totalSteps // ignore: cast_nullable_to_non_nullable
               as int,
-      totalOddNumber: totalOddNumber == freezed
+      totalOddNumber: null == totalOddNumber
           ? _value.totalOddNumber
           : totalOddNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      totalEvenNumber: totalEvenNumber == freezed
+      totalEvenNumber: null == totalEvenNumber
           ? _value.totalEvenNumber
           : totalEvenNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      highestNumber: highestNumber == freezed
+      highestNumber: null == highestNumber
           ? _value.highestNumber
           : highestNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      highestNumberAt: highestNumberAt == freezed
+      highestNumberAt: null == highestNumberAt
           ? _value.highestNumberAt
           : highestNumberAt // ignore: cast_nullable_to_non_nullable
               as int,
-      highestPerInitial: highestPerInitial == freezed
+      highestPerInitial: null == highestPerInitial
           ? _value.highestPerInitial
           : highestPerInitial // ignore: cast_nullable_to_non_nullable
               as double,
-      oddDistribution: oddDistribution == freezed
+      oddDistribution: null == oddDistribution
           ? _value.oddDistribution
           : oddDistribution // ignore: cast_nullable_to_non_nullable
               as double,
-      evenDistribution: evenDistribution == freezed
+      evenDistribution: null == evenDistribution
           ? _value.evenDistribution
           : evenDistribution // ignore: cast_nullable_to_non_nullable
               as double,
@@ -258,43 +260,44 @@ class _$_ResultDataModel implements _ResultDataModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ResultDataModel &&
-            const DeepCollectionEquality()
-                .equals(other.initialNumber, initialNumber) &&
+            (identical(other.initialNumber, initialNumber) ||
+                other.initialNumber == initialNumber) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
-            const DeepCollectionEquality()
-                .equals(other.totalSteps, totalSteps) &&
-            const DeepCollectionEquality()
-                .equals(other.totalOddNumber, totalOddNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.totalEvenNumber, totalEvenNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.highestNumber, highestNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.highestNumberAt, highestNumberAt) &&
-            const DeepCollectionEquality()
-                .equals(other.highestPerInitial, highestPerInitial) &&
-            const DeepCollectionEquality()
-                .equals(other.oddDistribution, oddDistribution) &&
-            const DeepCollectionEquality()
-                .equals(other.evenDistribution, evenDistribution));
+            (identical(other.totalSteps, totalSteps) ||
+                other.totalSteps == totalSteps) &&
+            (identical(other.totalOddNumber, totalOddNumber) ||
+                other.totalOddNumber == totalOddNumber) &&
+            (identical(other.totalEvenNumber, totalEvenNumber) ||
+                other.totalEvenNumber == totalEvenNumber) &&
+            (identical(other.highestNumber, highestNumber) ||
+                other.highestNumber == highestNumber) &&
+            (identical(other.highestNumberAt, highestNumberAt) ||
+                other.highestNumberAt == highestNumberAt) &&
+            (identical(other.highestPerInitial, highestPerInitial) ||
+                other.highestPerInitial == highestPerInitial) &&
+            (identical(other.oddDistribution, oddDistribution) ||
+                other.oddDistribution == oddDistribution) &&
+            (identical(other.evenDistribution, evenDistribution) ||
+                other.evenDistribution == evenDistribution));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(initialNumber),
+      initialNumber,
       const DeepCollectionEquality().hash(_data),
-      const DeepCollectionEquality().hash(totalSteps),
-      const DeepCollectionEquality().hash(totalOddNumber),
-      const DeepCollectionEquality().hash(totalEvenNumber),
-      const DeepCollectionEquality().hash(highestNumber),
-      const DeepCollectionEquality().hash(highestNumberAt),
-      const DeepCollectionEquality().hash(highestPerInitial),
-      const DeepCollectionEquality().hash(oddDistribution),
-      const DeepCollectionEquality().hash(evenDistribution));
+      totalSteps,
+      totalOddNumber,
+      totalEvenNumber,
+      highestNumber,
+      highestNumberAt,
+      highestPerInitial,
+      oddDistribution,
+      evenDistribution);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ResultDataModelCopyWith<_$_ResultDataModel> get copyWith =>
       __$$_ResultDataModelCopyWithImpl<_$_ResultDataModel>(this, _$identity);
 }

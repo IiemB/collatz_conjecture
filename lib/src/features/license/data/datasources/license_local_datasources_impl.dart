@@ -2,8 +2,8 @@ import 'package:collatz_conjecture/src/features/license/license.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: LicenseDataSource)
-class LicenseDataSourceImpl implements LicenseDataSource {
+@LazySingleton(as: LicenseLocalDatasources)
+class LicenseLocalDatasourceImpl implements LicenseLocalDatasources {
   @override
   Future<LicensesDataModel> getAppLicenses() async {
     try {

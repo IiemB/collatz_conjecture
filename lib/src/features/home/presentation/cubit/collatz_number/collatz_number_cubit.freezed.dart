@@ -26,10 +26,10 @@ mixin _$CollatzNumberState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(ResultDataModel result)? succees,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ResultDataModel result)? succees,
+    TResult? Function(Failure failure)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$CollatzNumberState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CollatzNumberStateInitial value)? initial,
-    TResult Function(CollatzNumberStateLoading value)? loading,
-    TResult Function(CollatzNumberStateSuccess value)? succees,
-    TResult Function(CollatzNumberStateError value)? error,
+    TResult? Function(CollatzNumberStateInitial value)? initial,
+    TResult? Function(CollatzNumberStateLoading value)? loading,
+    TResult? Function(CollatzNumberStateSuccess value)? succees,
+    TResult? Function(CollatzNumberStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,18 @@ mixin _$CollatzNumberState {
 abstract class $CollatzNumberStateCopyWith<$Res> {
   factory $CollatzNumberStateCopyWith(
           CollatzNumberState value, $Res Function(CollatzNumberState) then) =
-      _$CollatzNumberStateCopyWithImpl<$Res>;
+      _$CollatzNumberStateCopyWithImpl<$Res, CollatzNumberState>;
 }
 
 /// @nodoc
-class _$CollatzNumberStateCopyWithImpl<$Res>
+class _$CollatzNumberStateCopyWithImpl<$Res, $Val extends CollatzNumberState>
     implements $CollatzNumberStateCopyWith<$Res> {
   _$CollatzNumberStateCopyWithImpl(this._value, this._then);
 
-  final CollatzNumberState _value;
   // ignore: unused_field
-  final $Res Function(CollatzNumberState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -95,15 +96,11 @@ abstract class _$$CollatzNumberStateInitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$CollatzNumberStateInitialCopyWithImpl<$Res>
-    extends _$CollatzNumberStateCopyWithImpl<$Res>
+    extends _$CollatzNumberStateCopyWithImpl<$Res, _$CollatzNumberStateInitial>
     implements _$$CollatzNumberStateInitialCopyWith<$Res> {
   __$$CollatzNumberStateInitialCopyWithImpl(_$CollatzNumberStateInitial _value,
       $Res Function(_$CollatzNumberStateInitial) _then)
-      : super(_value, (v) => _then(v as _$CollatzNumberStateInitial));
-
-  @override
-  _$CollatzNumberStateInitial get _value =>
-      super._value as _$CollatzNumberStateInitial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -140,10 +137,10 @@ class _$CollatzNumberStateInitial implements CollatzNumberStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(ResultDataModel result)? succees,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ResultDataModel result)? succees,
+    TResult? Function(Failure failure)? error,
   }) {
     return initial?.call();
   }
@@ -177,10 +174,10 @@ class _$CollatzNumberStateInitial implements CollatzNumberStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CollatzNumberStateInitial value)? initial,
-    TResult Function(CollatzNumberStateLoading value)? loading,
-    TResult Function(CollatzNumberStateSuccess value)? succees,
-    TResult Function(CollatzNumberStateError value)? error,
+    TResult? Function(CollatzNumberStateInitial value)? initial,
+    TResult? Function(CollatzNumberStateLoading value)? loading,
+    TResult? Function(CollatzNumberStateSuccess value)? succees,
+    TResult? Function(CollatzNumberStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -215,15 +212,11 @@ abstract class _$$CollatzNumberStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$CollatzNumberStateLoadingCopyWithImpl<$Res>
-    extends _$CollatzNumberStateCopyWithImpl<$Res>
+    extends _$CollatzNumberStateCopyWithImpl<$Res, _$CollatzNumberStateLoading>
     implements _$$CollatzNumberStateLoadingCopyWith<$Res> {
   __$$CollatzNumberStateLoadingCopyWithImpl(_$CollatzNumberStateLoading _value,
       $Res Function(_$CollatzNumberStateLoading) _then)
-      : super(_value, (v) => _then(v as _$CollatzNumberStateLoading));
-
-  @override
-  _$CollatzNumberStateLoading get _value =>
-      super._value as _$CollatzNumberStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -260,10 +253,10 @@ class _$CollatzNumberStateLoading implements CollatzNumberStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(ResultDataModel result)? succees,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ResultDataModel result)? succees,
+    TResult? Function(Failure failure)? error,
   }) {
     return loading?.call();
   }
@@ -297,10 +290,10 @@ class _$CollatzNumberStateLoading implements CollatzNumberStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CollatzNumberStateInitial value)? initial,
-    TResult Function(CollatzNumberStateLoading value)? loading,
-    TResult Function(CollatzNumberStateSuccess value)? succees,
-    TResult Function(CollatzNumberStateError value)? error,
+    TResult? Function(CollatzNumberStateInitial value)? initial,
+    TResult? Function(CollatzNumberStateLoading value)? loading,
+    TResult? Function(CollatzNumberStateSuccess value)? succees,
+    TResult? Function(CollatzNumberStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -331,6 +324,7 @@ abstract class _$$CollatzNumberStateSuccessCopyWith<$Res> {
           _$CollatzNumberStateSuccess value,
           $Res Function(_$CollatzNumberStateSuccess) then) =
       __$$CollatzNumberStateSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({ResultDataModel result});
 
   $ResultDataModelCopyWith<$Res> get result;
@@ -338,22 +332,19 @@ abstract class _$$CollatzNumberStateSuccessCopyWith<$Res> {
 
 /// @nodoc
 class __$$CollatzNumberStateSuccessCopyWithImpl<$Res>
-    extends _$CollatzNumberStateCopyWithImpl<$Res>
+    extends _$CollatzNumberStateCopyWithImpl<$Res, _$CollatzNumberStateSuccess>
     implements _$$CollatzNumberStateSuccessCopyWith<$Res> {
   __$$CollatzNumberStateSuccessCopyWithImpl(_$CollatzNumberStateSuccess _value,
       $Res Function(_$CollatzNumberStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$CollatzNumberStateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$CollatzNumberStateSuccess get _value =>
-      super._value as _$CollatzNumberStateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? result = freezed,
+    Object? result = null,
   }) {
     return _then(_$CollatzNumberStateSuccess(
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as ResultDataModel,
@@ -361,6 +352,7 @@ class __$$CollatzNumberStateSuccessCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ResultDataModelCopyWith<$Res> get result {
     return $ResultDataModelCopyWith<$Res>(_value.result, (value) {
       return _then(_value.copyWith(result: value));
@@ -386,15 +378,15 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CollatzNumberStateSuccess &&
-            const DeepCollectionEquality().equals(other.result, result));
+            (identical(other.result, result) || other.result == result));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(result));
+  int get hashCode => Object.hash(runtimeType, result);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CollatzNumberStateSuccessCopyWith<_$CollatzNumberStateSuccess>
       get copyWith => __$$CollatzNumberStateSuccessCopyWithImpl<
           _$CollatzNumberStateSuccess>(this, _$identity);
@@ -413,10 +405,10 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(ResultDataModel result)? succees,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ResultDataModel result)? succees,
+    TResult? Function(Failure failure)? error,
   }) {
     return succees?.call(result);
   }
@@ -450,10 +442,10 @@ class _$CollatzNumberStateSuccess implements CollatzNumberStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CollatzNumberStateInitial value)? initial,
-    TResult Function(CollatzNumberStateLoading value)? loading,
-    TResult Function(CollatzNumberStateSuccess value)? succees,
-    TResult Function(CollatzNumberStateError value)? error,
+    TResult? Function(CollatzNumberStateInitial value)? initial,
+    TResult? Function(CollatzNumberStateLoading value)? loading,
+    TResult? Function(CollatzNumberStateSuccess value)? succees,
+    TResult? Function(CollatzNumberStateError value)? error,
   }) {
     return succees?.call(this);
   }
@@ -489,6 +481,7 @@ abstract class _$$CollatzNumberStateErrorCopyWith<$Res> {
   factory _$$CollatzNumberStateErrorCopyWith(_$CollatzNumberStateError value,
           $Res Function(_$CollatzNumberStateError) then) =
       __$$CollatzNumberStateErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({Failure failure});
 
   $FailureCopyWith<$Res> get failure;
@@ -496,22 +489,19 @@ abstract class _$$CollatzNumberStateErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$CollatzNumberStateErrorCopyWithImpl<$Res>
-    extends _$CollatzNumberStateCopyWithImpl<$Res>
+    extends _$CollatzNumberStateCopyWithImpl<$Res, _$CollatzNumberStateError>
     implements _$$CollatzNumberStateErrorCopyWith<$Res> {
   __$$CollatzNumberStateErrorCopyWithImpl(_$CollatzNumberStateError _value,
       $Res Function(_$CollatzNumberStateError) _then)
-      : super(_value, (v) => _then(v as _$CollatzNumberStateError));
+      : super(_value, _then);
 
-  @override
-  _$CollatzNumberStateError get _value =>
-      super._value as _$CollatzNumberStateError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
     return _then(_$CollatzNumberStateError(
-      failure == freezed
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
@@ -519,6 +509,7 @@ class __$$CollatzNumberStateErrorCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $FailureCopyWith<$Res> get failure {
     return $FailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -544,15 +535,15 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CollatzNumberStateError &&
-            const DeepCollectionEquality().equals(other.failure, failure));
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CollatzNumberStateErrorCopyWith<_$CollatzNumberStateError> get copyWith =>
       __$$CollatzNumberStateErrorCopyWithImpl<_$CollatzNumberStateError>(
           this, _$identity);
@@ -571,10 +562,10 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(ResultDataModel result)? succees,
-    TResult Function(Failure failure)? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ResultDataModel result)? succees,
+    TResult? Function(Failure failure)? error,
   }) {
     return error?.call(failure);
   }
@@ -608,10 +599,10 @@ class _$CollatzNumberStateError implements CollatzNumberStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CollatzNumberStateInitial value)? initial,
-    TResult Function(CollatzNumberStateLoading value)? loading,
-    TResult Function(CollatzNumberStateSuccess value)? succees,
-    TResult Function(CollatzNumberStateError value)? error,
+    TResult? Function(CollatzNumberStateInitial value)? initial,
+    TResult? Function(CollatzNumberStateLoading value)? loading,
+    TResult? Function(CollatzNumberStateSuccess value)? succees,
+    TResult? Function(CollatzNumberStateError value)? error,
   }) {
     return error?.call(this);
   }

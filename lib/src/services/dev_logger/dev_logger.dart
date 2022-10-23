@@ -1,4 +1,3 @@
-import 'package:collatz_conjecture/src/configs/configs.dart';
 import 'package:collatz_conjecture/src/services/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
@@ -7,7 +6,7 @@ abstract class DevLoggerInterface {
   Logger get logger;
 }
 
-@Singleton(env: [Env.developement], as: DevLoggerInterface)
+@Singleton(env: [Environment.dev], as: DevLoggerInterface)
 class DevLogger implements DevLoggerInterface {
   @override
   Logger logger = Logger(
@@ -20,7 +19,7 @@ class DevLogger implements DevLoggerInterface {
   );
 }
 
-@Singleton(env: [Env.production], as: DevLoggerInterface)
+@Singleton(env: [Environment.prod], as: DevLoggerInterface)
 class ProdLogger implements DevLoggerInterface {
   @override
   Logger logger = Logger(

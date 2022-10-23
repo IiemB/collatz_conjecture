@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:collatz_conjecture/src/features/home/home.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: CollatzConjectureUsecase)
-class CollatzConjectureUsecaseImpl implements CollatzConjectureUsecase {
+@LazySingleton(as: CollatzConjectureLocalDataSources)
+class CollatzConjectureLocalDataSourcesImpl
+    implements CollatzConjectureLocalDataSources {
   @override
   Future<ResultDataModel> procesNumber({required int initial}) async {
     try {
@@ -68,7 +69,7 @@ class CollatzConjectureUsecaseImpl implements CollatzConjectureUsecase {
       } else {
         throw Exception('$completer failure');
       }
-    } on Exception {
+    } catch (e) {
       rethrow;
     }
   }
